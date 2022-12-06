@@ -1,7 +1,7 @@
 class CreateCharactersList < ActiveRecord::Migration[7.0]
   def change
-    create_table :characters_lists, :primary_key => 'character_id'  do |t|
-      t.references :players, null: false , name: :player_id
+    create_table :characters_lists  do |t|
+      t.references :player , null: false, foreign_key:{to_table: :players}
       t.string :character_name, null: false
       t.string :background, null: false
       t.string :race, null: false
