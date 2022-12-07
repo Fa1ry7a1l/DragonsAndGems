@@ -25,8 +25,10 @@ jobs:
         with:
           bundler-cache: true
       # Add or replace database setup steps here
-#      - name: Set up database schema
-#        run: bin/rails db:schema:load
+      - name: Install postgres client
+        run: sudo apt-get install libpq-dev
+      - name: Set up database schema
+        run: bin/rails db:schema:load
       # Add or replace test runners here
       - name: Run tests
         run: bin/rake
