@@ -27,6 +27,8 @@ jobs:
       # Add or replace database setup steps here
       - name: Install postgres client
         run: sudo apt-get install libpq-dev
+      - name: Run postgres
+        run: sudo systemctl start postgresql
       - name: Set up database schema
         run: bin/rails db:schema:load
       # Add or replace test runners here
