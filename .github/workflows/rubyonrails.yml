@@ -12,21 +12,27 @@ on:
     branches: [ "main" ]
 jobs:
   test:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     env:
       RAILS_ENV: test
       DATABASE_URL: "postgres://rails:password@localhost:5432/rails_test"
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+      # Add or replace dependency steps here
+      - name: Install Ruby and gems
+        uses: ruby/setup-ruby@0a29871fe2b0200a17a4497bae54fe5df0d973aa # v1.115.3
+        with:
+          bundler-cache: true
       # Add or replace database setup steps here
       - name: Set up database schema
-        run: export PATH=/usr/local/rvm/gems/ruby-3.0.2/bin:/usr/local/rvm/gems/ruby-3.0.2@global/bin:/usr/local/rvm/rubies/ruby-3.0.2/bin:/usr/local/rvm/bin:$PATH && bin/rails db:schema:load
+        run: bin/rails db:schema:load
       # Add or replace test runners here
       - name: Run tests
         run: bin/rake
   deploy:
     runs-on: self-hosted
+    needs: test
     steps:
       - name: Run
         run: scripts/deploy.sh
