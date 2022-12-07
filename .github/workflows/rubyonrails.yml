@@ -8,7 +8,7 @@ env:
   RUBY_VERSION: 3.0.2
   POSTGRES_USER: app2
   POSTGRES_PASSWORD: Fa1ry7a1l
-  POSTGRES_DB: DragonsAndGems_test
+  POSTGRES_DB: DragonsAndGems
 
 name: Rails tests
 on: [push,pull_request]
@@ -38,8 +38,8 @@ jobs:
           bundler install
       - name: Create database
         run: |
-          bundler exec rails db:create RAILS_ENV=test
-          bundler exec rails db:migrate RAILS_ENV=test
+          bin/rails db:create RAILS_ENV=test
+          bin/rails db:migrate RAILS_ENV=test
       - name: Run tests
         run: bundler exec rake
   deploy:
