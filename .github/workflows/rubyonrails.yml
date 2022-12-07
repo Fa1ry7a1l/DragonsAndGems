@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@v3
       # Add or replace database setup steps here
       - name: Set up database schema
-        run: /usr/local/rvm/bin/rvm repair all && bin/rails db:schema:load
+        run: /usr/local/rvm/bin/rvm repair all && echo $PATH && bin/rails db:schema:load
       # Add or replace test runners here
       - name: Run tests
         run: bin/rake
