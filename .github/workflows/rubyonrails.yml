@@ -17,7 +17,7 @@ jobs:
     name: RSpec
     runs-on: ubuntu-20.04
     env:  
-     DATABASE_URL: "postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@46.8.19.64:5432/$POSTGRES_DB"
+     DATABASE_URL: "postgres://app2:Fa1ry7a1l@46.8.19.64:5432/DragonsAndGems"
     steps:
       - uses: actions/checkout@v1
       - uses: ruby/setup-ruby@v1
