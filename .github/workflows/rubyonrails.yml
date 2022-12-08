@@ -30,8 +30,8 @@ jobs:
           bundler install
       - name: Create database
         run: |
-          bin/rails db:create  RAILS_ENV=test
-          bin/rails db:migrate RAILS_ENV=test
+          bin/rails db:create  RAILS_ENV=test LC_CTYPE=UTF-8
+          bin/rails db:migrate RAILS_ENV=test LC_CTYPE=UTF-8
       - name: Run tests
         run: bundler exec rake
   deploy:
