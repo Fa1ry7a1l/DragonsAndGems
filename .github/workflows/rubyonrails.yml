@@ -9,7 +9,7 @@ env:
   POSTGRES_USER: app2
   POSTGRES_PASSWORD: Fa1ry7a1l
   POSTGRES_DB: DragonsAndGems
-  DATABASE_URL: "postgres://${{ env.POSTGRES_USER }}:${{ env.POSTGRES_PASSWORD }}@46.8.19.64:5432/${{ env.POSTGRES_DB }}"
+  DATABASE_URL: "postgres://${{ POSTGRES_USER }}:${{ POSTGRES_PASSWORD }}@46.8.19.64:5432/${{ POSTGRES_DB }}"
   RAILS_ENV: test
 
 name: Rails tests
