@@ -18,9 +18,6 @@ jobs:
     runs-on: ubuntu-20.04
     env:  
      DATABASE_URL: "postgres://app2:Fa1ry7a1l@46.8.19.64:5432/DragonsAndGems_test"
-     LANGUAGE: "en_US.UTF-8"
-     LANG: "en_US.UTF-8"
-     LC_ALL: "en_US.UTF-8"
     steps:
       - uses: actions/checkout@v1
       - uses: ruby/setup-ruby@v1
@@ -33,12 +30,9 @@ jobs:
           bundler install
       - name: Create database
         run: |
-          export LANGUAGE="en_US.UTF-8"
-          export LANG="en_US.UTF-8"
-          export LC_ALL="en_US.UTF-8"
-          sudo localedef -v -c -i en_US -f UTF-8 en_US.UTF-8
-          bin/rails db:create  RAILS_ENV=test LC_CTYPE="en_US.UTF-8"
-          bin/rails db:migrate RAILS_ENV=test LC_CTYPE="en_US.UTF-8"
+           bin/rails db:migrate RAILS_ENV=test LC_CTYPE="en_US.UTF-8"
+#          bin/rails db:create  RAILS_ENV=test LC_CTYPE="en_US.UTF-8"
+#          bin/rails db:migrate RAILS_ENV=test LC_CTYPE="en_US.UTF-8"
       - name: Run tests
         run: bundler exec rake
   deploy:
