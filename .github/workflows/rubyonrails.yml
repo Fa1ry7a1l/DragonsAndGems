@@ -9,8 +9,6 @@ env:
   POSTGRES_USER: app2
   POSTGRES_PASSWORD: Fa1ry7a1l
   POSTGRES_DB: DragonsAndGems
-  DATABASE_URL: "postgres://${{ env.POSTGRES_USER }}:${{ env.POSTGRES_PASSWORD }}@46.8.19.64:5432/${{ env.POSTGRES_DB }}"
-  RAILS_ENV: test
 
 name: Rails tests
 on: [push,pull_request]
@@ -18,6 +16,8 @@ jobs:
   rspec-test:
     name: RSpec
     runs-on: ubuntu-20.04
+    env:  
+     DATABASE_URL: "postgres://${{ env.POSTGRES_USER }}:${{ env.POSTGRES_PASSWORD }}@46.8.19.64:5432/${{ env.POSTGRES_DB }}"
     steps:
       - uses: actions/checkout@v1
       - uses: ruby/setup-ruby@v1
