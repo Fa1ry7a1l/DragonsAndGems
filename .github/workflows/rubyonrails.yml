@@ -30,8 +30,6 @@ jobs:
           bundler install
       - name: Create database
         run: |
-          echo $DATABASE_URL
-          bin/rails db:create RAILS_ENV=test
           bin/rails db:migrate RAILS_ENV=test
       - name: Run tests
         run: bundler exec rake
