@@ -16,22 +16,15 @@ jobs:
   rspec-test:
     name: RSpec
     runs-on: ubuntu-20.04
-    services:
-      postgres:
-        image: postgres:latest
-        ports:
-        - 5432:5432
-        env:
-          POSTGRES_USER: ${{ env.POSTGRES_USER }}
-          POSTGRES_PASSWORD: ${{ env.POSTGRES_PASSWORD }}
+    env:
+      RAILS_ENV: test
+      DATABASE_URL: "postgres://${{ env.POSTGRES_USER }}:${{ env.POSTGRES_PASSWORD }}@46.8.19.64:5432/rails_test"
     steps:
       - uses: actions/checkout@v1
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ env.RUBY_VERSION }}
           bundler-cache: true
-      - name: Install postgres client
-        run: sudo apt-get install libpq-dev
       - name: Install dependencies
         run: |
           gem install bundler
