@@ -1,5 +1,4 @@
-class Spells < ApplicationRecord
+class Spell < ApplicationRecord
   validates :name, :description, presence: true
-  #todo ренейминг??
   belongs_to :characters_list
 end

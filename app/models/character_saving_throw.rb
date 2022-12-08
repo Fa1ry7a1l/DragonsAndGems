@@ -1,5 +1,5 @@
-class CharacterCharacteristics < ApplicationRecord
-  validates :proficiency_bonus, :strength, :dexterity, :constitution, :intelligence, :wisdom, :charisma, presence: true
+class CharacterSavingThrow < ApplicationRecord
+  validates :strength, :dexterity, :constitution, :intelligence, :wisdom, :charisma, presence: true
   validates :proficiency_bonus, :strength, :dexterity, :constitution, :intelligence, :wisdom, :charisma,
             :numericality => { :greater_than_or_equal_to => 0 }
   belongs_to :characters_list
