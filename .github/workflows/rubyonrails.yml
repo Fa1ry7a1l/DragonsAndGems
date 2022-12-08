@@ -17,7 +17,7 @@ jobs:
     name: RSpec
     runs-on: ubuntu-20.04
     env:  
-     DATABASE_URL: "postgres://${{ env.POSTGRES_USER }}:${{ env.POSTGRES_PASSWORD }}@46.8.19.64:5432/${{ env.POSTGRES_DB }}"
+     DATABASE_URL: "postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@46.8.19.64:5432/$POSTGRES_DB"
     steps:
       - uses: actions/checkout@v1
       - uses: ruby/setup-ruby@v1
@@ -30,6 +30,7 @@ jobs:
           bundler install
       - name: Create database
         run: |
+          echo $DATABASE_URL
           bin/rails db:create RAILS_ENV=test
           bin/rails db:migrate RAILS_ENV=test
       - name: Run tests
