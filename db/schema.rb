@@ -16,20 +16,20 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_192422) do
 
   create_table "armors", force: :cascade do |t|
     t.string "class", null: false
-    t.decimal "defend", null: false
+    t.integer "defend", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "character_characteristics", force: :cascade do |t|
     t.bigint "character_id", null: false
-    t.decimal "proficiency_bonus", null: false
-    t.decimal "strength", null: false
-    t.decimal "dexterity", null: false
-    t.decimal "constitution", null: false
-    t.decimal "intelligence", null: false
-    t.decimal "wisdom", null: false
-    t.decimal "charisma", null: false
+    t.integer "proficiency_bonus", null: false
+    t.integer "strength", null: false
+    t.integer "dexterity", null: false
+    t.integer "constitution", null: false
+    t.integer "intelligence", null: false
+    t.integer "wisdom", null: false
+    t.integer "charisma", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["character_id"], name: "index_character_characteristics_on_character_id"
@@ -62,12 +62,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_192422) do
 
   create_table "character_saving_throws", force: :cascade do |t|
     t.bigint "character_id", null: false
-    t.decimal "strength", null: false
-    t.decimal "dexterity", null: false
-    t.decimal "constitution", null: false
-    t.decimal "intelligence", null: false
-    t.decimal "wisdom", null: false
-    t.decimal "charisma", null: false
+    t.integer "strength", null: false
+    t.integer "dexterity", null: false
+    t.integer "constitution", null: false
+    t.integer "intelligence", null: false
+    t.integer "wisdom", null: false
+    t.integer "charisma", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["character_id"], name: "index_character_saving_throws_on_character_id"
@@ -79,15 +79,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_192422) do
     t.string "background", null: false
     t.string "race", null: false
     t.string "alignment", null: false
-    t.decimal "exp", null: false
+    t.integer "exp", null: false
     t.boolean "inspiration", null: false
-    t.decimal "armor_class", null: false
-    t.decimal "initiative", null: false
-    t.decimal "speed", null: false
-    t.decimal "max_hp", null: false
-    t.decimal "current_hp", null: false
-    t.decimal "temporary_hp", null: false
-    t.decimal "money", null: false
+    t.integer "armor_class", null: false
+    t.integer "initiative", null: false
+    t.integer "speed", null: false
+    t.integer "max_hp", null: false
+    t.integer "current_hp", null: false
+    t.integer "temporary_hp", null: false
+    t.integer "money", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["player_id"], name: "index_characters_lists_on_player_id"
@@ -97,8 +97,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_192422) do
     t.string "name", null: false
     t.string "description", null: false
     t.bigint "owner_id", null: false
-    t.decimal "min_value", null: false
-    t.decimal "max_value", null: false
+    t.integer "min_value", null: false
+    t.integer "max_value", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["owner_id"], name: "index_monster_skills_on_owner_id"
@@ -106,6 +106,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_192422) do
 
   create_table "players", force: :cascade do |t|
     t.string "player_name"
+    t.string "password_digest"
+    t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -113,7 +115,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_192422) do
   create_table "room_monsters", force: :cascade do |t|
     t.bigint "room_id", null: false
     t.bigint "world_monster_id", null: false
-    t.decimal "current_hp", null: false
+    t.integer "current_hp", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["room_id"], name: "index_room_monsters_on_room_id"
@@ -121,7 +123,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_192422) do
   end
 
   create_table "rooms", force: :cascade do |t|
-    t.bigint "dungeon_master_id_id", null: false
+    t.bigint "dungeon_master_id", null: false
     t.string "room_name", null: false
     t.bigint "character_1_id"
     t.bigint "character_2_id"
@@ -135,7 +137,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_192422) do
     t.index ["character_3_id"], name: "index_rooms_on_character_3_id"
     t.index ["character_4_id"], name: "index_rooms_on_character_4_id"
     t.index ["character_5_id"], name: "index_rooms_on_character_5_id"
-    t.index ["dungeon_master_id_id"], name: "index_rooms_on_dungeon_master_id_id"
+    t.index ["dungeon_master_id"], name: "index_rooms_on_dungeon_master_id"
   end
 
   create_table "spells", force: :cascade do |t|
@@ -149,8 +151,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_192422) do
 
   create_table "weapons", force: :cascade do |t|
     t.string "user_view_damage", null: false
-    t.decimal "min_damage", null: false
-    t.decimal "max_damage", null: false
+    t.integer "min_damage", null: false
+    t.integer "max_damage", null: false
     t.string "type_damage", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -170,7 +172,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_192422) do
   create_table "world_monsters", force: :cascade do |t|
     t.string "name", null: false
     t.string "description", null: false
-    t.decimal "start_hp", null: false
+    t.integer "start_hp", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -187,7 +189,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_192422) do
   add_foreign_key "rooms", "characters_lists", column: "character_3_id"
   add_foreign_key "rooms", "characters_lists", column: "character_4_id"
   add_foreign_key "rooms", "characters_lists", column: "character_5_id"
-  add_foreign_key "rooms", "players", column: "dungeon_master_id_id"
+  add_foreign_key "rooms", "players", column: "dungeon_master_id"
   add_foreign_key "spells", "characters_lists", column: "character_id"
   add_foreign_key "world_inventory", "armors"
   add_foreign_key "world_inventory", "weapons"
