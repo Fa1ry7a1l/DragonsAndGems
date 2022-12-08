@@ -6,8 +6,8 @@ class CreateMonsterSkill < ActiveRecord::Migration[7.0]
 
       t.references :owner , null: false, foreign_key:{to_table: :world_monsters}
 
-      t.decimal :min_value, null:false
-      t.decimal :max_value, null:false
+      t.integer :min_value, null:false
+      t.integer :max_value, null:false
 
       t.timestamps
     end

@@ -4,7 +4,7 @@ class CreateWorldMonsters < ActiveRecord::Migration[7.0]
 
       t.string :name, null: false
       t.string :description, null: false
-      t.decimal :start_hp, null: false
+      t.integer :start_hp, null: false
 
       t.timestamps
     end
