@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_06_192422) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_09_093122) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -33,6 +33,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_192422) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["character_id"], name: "index_character_characteristics_on_character_id"
+  end
+
+  create_table "character_inventories", force: :cascade do |t|
+    t.bigint "item_id", null: false
+    t.bigint "character_id", null: false
+    t.integer "count", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["character_id"], name: "index_character_inventories_on_character_id"
+    t.index ["item_id"], name: "index_character_inventories_on_item_id"
   end
 
   create_table "character_perks", force: :cascade do |t|
@@ -178,6 +188,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_192422) do
   end
 
   add_foreign_key "character_characteristics", "characters_lists", column: "character_id"
+  add_foreign_key "character_inventories", "characters_lists", column: "character_id"
+  add_foreign_key "character_inventories", "world_inventory", column: "item_id"
   add_foreign_key "character_perks", "characters_lists", column: "character_id"
   add_foreign_key "character_saving_throws", "characters_lists", column: "character_id"
   add_foreign_key "characters_lists", "players"
