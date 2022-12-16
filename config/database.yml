@@ -14,9 +14,14 @@
 # Configure Using Gemfile
 # gem "pg"
 #
+
 default: &default
   adapter: postgresql
   encoding: unicode
+  lc_collate: 'en_US.utf8'
+  lc_ctype: 'en_US.utf8'
+  host: '542874.cloud4box.ru'
+  post: '5432'
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>

@@ -121,7 +121,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_192422) do
   end
 
   create_table "rooms", force: :cascade do |t|
-    t.bigint "dungeon_master_id_id", null: false
+    t.bigint "dungeon_master_id", null: false
     t.string "room_name", null: false
     t.bigint "character_1_id"
     t.bigint "character_2_id"
@@ -135,7 +135,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_192422) do
     t.index ["character_3_id"], name: "index_rooms_on_character_3_id"
     t.index ["character_4_id"], name: "index_rooms_on_character_4_id"
     t.index ["character_5_id"], name: "index_rooms_on_character_5_id"
-    t.index ["dungeon_master_id_id"], name: "index_rooms_on_dungeon_master_id_id"
+    t.index ["dungeon_master_id"], name: "index_rooms_on_dungeon_master_id"
   end
 
   create_table "spells", force: :cascade do |t|
@@ -187,7 +187,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_192422) do
   add_foreign_key "rooms", "characters_lists", column: "character_3_id"
   add_foreign_key "rooms", "characters_lists", column: "character_4_id"
   add_foreign_key "rooms", "characters_lists", column: "character_5_id"
-  add_foreign_key "rooms", "players", column: "dungeon_master_id_id"
+  add_foreign_key "rooms", "players", column: "dungeon_master_id"
   add_foreign_key "spells", "characters_lists", column: "character_id"
   add_foreign_key "world_inventory", "armors"
   add_foreign_key "world_inventory", "weapons"
