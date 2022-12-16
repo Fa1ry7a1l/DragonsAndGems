@@ -1,9 +1,9 @@
 <nav>
-  <%= link_to 'Вход', login_path %>
   <%= link_to 'Регистрация', register_path %>
 </nav>
 
 <%= render 'shared/errors' %>
+<%= image_tag ("drakosha.png") %>
 <%= form_for :player, class: 'user_data_form' do |f| %>
   <div class="input_item">
     <%= label_tag :email, 'Email' %>
