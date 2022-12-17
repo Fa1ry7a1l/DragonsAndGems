@@ -34,6 +34,6 @@ jobs:
     steps:
       - name: Run
         run: |
-          docker stop server
-          docker build -t ruby:server .
-          docker run -dt --rm --name server -p 80:3000 ruby:server
+          sudo docker stop server
+          sudo docker build -t ruby:server .
+          sudo docker run -dt --rm --name server -p 80:3000 ruby:server
