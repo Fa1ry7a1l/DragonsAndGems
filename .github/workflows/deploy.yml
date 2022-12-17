@@ -1,0 +1,44 @@
+env:
+  RUBY_VERSION: 3.0.2
+  POSTGRES_USER: app2
+  POSTGRES_PASSWORD: Fa1ry7a1l
+  POSTGRES_DB: DragonsAndGems
+
+name: Deploy
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  jobs:
+    rspec-test:
+      name: RSpec
+      runs-on: ubuntu-20.04
+      env:
+        DATABASE_URL: "postgres://app2:Fa1ry7a1l@46.8.19.64:5432/DragonsAndGems_test"
+      steps:
+        - uses: actions/checkout@v1
+        - uses: ruby/setup-ruby@v1
+          with:
+            ruby-version: ${{ env.RUBY_VERSION }}
+            bundler-cache: true
+        - name: Install dependencies
+          run: |
+            gem install bundler
+            bundler install
+        - name: Create database
+          run: |
+            bin/rails db:create RAILS_ENV=test
+            bin/rails db:migrate RAILS_ENV=test
+        - name: Run tests
+          run: bundler exec rake
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - name: Run
+        run: |
+          sudo docker stop server
+          sudo docker build -t ruby:server .
+          sudo docker run -dt --rm --name server -p 80:3000 ruby:server

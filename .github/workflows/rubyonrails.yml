@@ -5,7 +5,13 @@ env:
   POSTGRES_DB: DragonsAndGems
 
 name: Rails tests
-on: [push,pull_request]
+on:
+  push:
+    branches:
+     - "!main"
+  pull_request:
+    branches:
+     - "!main"
 jobs:
   rspec-test:
     name: RSpec
@@ -28,12 +34,3 @@ jobs:
           bin/rails db:migrate RAILS_ENV=test
       - name: Run tests
         run: bundler exec rake
-  deploy:
-    runs-on: self-hosted
-    needs: rspec-test
-    steps:
-      - name: Run
-        run: |
-          sudo docker stop server
-          sudo docker build -t ruby:server .
-          sudo docker run -dt --rm --name server -p 80:3000 ruby:server
