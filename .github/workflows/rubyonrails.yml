@@ -7,11 +7,11 @@ env:
 name: Rails tests
 on:
   push:
-    branches:
-     - "!main"
+    branches-ignore:
+     - "main"
   pull_request:
-    branches:
-     - "!main"
+    branches-ignore:
+     - "main"
 jobs:
   rspec-test:
     name: RSpec
