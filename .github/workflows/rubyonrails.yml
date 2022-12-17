@@ -1,37 +1,39 @@
-# This workflow uses actions that are not certified by GitHub.  They are
-# provided by a third-party and are governed by separate terms of service,
-# privacy policy, and support documentation.
-#
-# This workflow will install a prebuilt Ruby version, install dependencies, and
-# run tests and linters.
-name: "Ruby on Rails CI"
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+env:
+  RUBY_VERSION: 3.0.2
+  POSTGRES_USER: app2
+  POSTGRES_PASSWORD: Fa1ry7a1l
+  POSTGRES_DB: DragonsAndGems
+
+name: Rails tests
+on: [push,pull_request]
 jobs:
-  test:
-    runs-on: self-hosted
-    env:
-      RAILS_ENV: test
-      DATABASE_URL: "postgres://rails:password@localhost:5432/rails_test"
+  rspec-test:
+    name: RSpec
+    runs-on: ubuntu-20.04
+    env:  
+     DATABASE_URL: "postgres://app2:Fa1ry7a1l@46.8.19.64:5432/DragonsAndGems_test"
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      # Add or replace dependency steps here
-#      - name: Install Ruby and gems
-#        uses: ruby/setup-ruby@0a29871fe2b0200a17a4497bae54fe5df0d973aa # v1.115.3
-#        with:
-#          bundler-cache: true
-      # Add or replace database setup steps here
-      - name: Set up database schema
-        run: bin/rails db:schema:load
-      # Add or replace test runners here
+      - uses: actions/checkout@v1
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+          bundler-cache: true
+      - name: Install dependencies
+        run: |
+          gem install bundler
+          bundler install
+      - name: Create database
+        run: |
+          bin/rails db:migrate
+           bin/rails db:migrate
       - name: Run tests
-        run: bin/rake
+        run: bundler exec rake
   deploy:
     runs-on: self-hosted
+    needs: rspec-test
     steps:
       - name: Run
-        run: scripts/deploy.sh
+        run: |
+          docker stop server
+          docker build -t ruby:server .
+          docker run -dt --rm --name server -p 80:3000 ruby:server
