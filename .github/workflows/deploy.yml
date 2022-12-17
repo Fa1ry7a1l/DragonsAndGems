@@ -4,20 +4,17 @@ env:
   POSTGRES_PASSWORD: Fa1ry7a1l
   POSTGRES_DB: DragonsAndGems
 
-name: Rails tests
+name: Deploy
 on:
   push:
-    branches-ignore:
-     - "main"
-  pull_request:
-    branches-ignore:
-     - "main"
+    branches: [ "main" ]
+
 jobs:
   rspec-test:
     name: RSpec
     runs-on: ubuntu-20.04
-    env:  
-     DATABASE_URL: "postgres://app2:Fa1ry7a1l@46.8.19.64:5432/DragonsAndGems_test"
+    env:
+      DATABASE_URL: "postgres://app2:Fa1ry7a1l@46.8.19.64:5432/DragonsAndGems_test"
     steps:
       - uses: actions/checkout@v1
       - uses: ruby/setup-ruby@v1
@@ -34,3 +31,12 @@ jobs:
           bin/rails db:migrate RAILS_ENV=test
       - name: Run tests
         run: bundler exec rake
+  deploy:
+    runs-on: self-hosted
+    needs: rspec-test
+    steps:
+      - name: Run
+        run: |
+          sudo docker stop server
+          sudo docker build -t ruby:server .
+          sudo docker run -dt --rm --name server -p 80:3000 ruby:server
