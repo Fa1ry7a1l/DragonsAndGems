@@ -35,6 +35,7 @@ jobs:
         run: bundler exec rake
   deploy:
     runs-on: self-hosted
+    needs: rspec-test
     steps:
       - name: Run
         run: |
