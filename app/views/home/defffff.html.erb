@@ -3,3 +3,7 @@
 </nav>
 <%= image_tag ("drakosha.png") %>
 <h1>Знакомьтесь, Персик!</h1>
+
+<%= button_to "Создать комнату", room_create_path, method: :get%>
+
+<%= button_to "Поиск комнат", room_find_path, method: :get%>

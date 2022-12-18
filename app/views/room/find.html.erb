@@ -5,10 +5,10 @@
 <%= form_for :room, class: 'room_data_form' do |f| %>
 
   <div class="input_item">
-    <%= label_tag :room_name, 'Название лобби' %>
-    <%= f.text_field :room_name %>
+    <%= label_tag :room_tag, 'Идентификатор лобби' %>
+    <%= f.text_field :room_tag %>
   </div>
   <div class="input_item">
-    <%= f.submit 'Создать' %>
+    <%= f.submit 'Присоединиться' %>
   </div>
 <% end %>

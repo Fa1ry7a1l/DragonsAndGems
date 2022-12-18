@@ -11,5 +11,10 @@ Rails.application.routes.draw do
   post '/login', to: 'login#create'
   get '/logout', to: 'login#destroy'
 
-  get '/create/room', to: 'room#new'
+  get '/room/create', to: 'room#new'
+  post '/room/create', to: 'room#create'
+  get '/room/find', to: 'room#find'
+  get '/room/:tag_lobby', to: 'room#show'
+  post '/room/find', to: 'room#join'
+
 end
