@@ -1,100 +1,22 @@
-<style>
-    a:link, a:visited
-    {
-        border-radius: 10px;
-        color: #5d0808;
-        text-decoration: none;
-        font-family: "Century Gothic";
-        font-weight: bold;
-        background-color: #dee4f4;
-        text-align: center;
-        display: inline-block;
-        padding: 14px 25px;
-        margin-top: 0.5rem;
-        margin-left: 0.5rem;
-        user-select: none;
-    }
-    a:hover
-    {
-        color: #ec1718;
-        background-color: #c2cdec;
-        text-decoration: none;
-    }
+<%= stylesheet_link_tag 'application.css' %>
 
-.image
-{
-    alt: "Dragon Sleeping";
-    user-select: none;
-    pointer-events: none;
-    width:50%;
-    height:50%;
-}
-
-.input-line
-{
-    alignment: center;
-    align-content: center;
-    height: 100px;
-    width: 400px;
-    margin: auto;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    justify-content: space-between;
-}
-.input_text
-{
-    font-family: "Century Gothic";
-    font-weight: bold;
-    float: left;
-    margin-bottom: 0.5rem;
-    height: 35px;
-    width: 190px;
-}
-.input_field
-{
-    float: right;
-    margin-bottom: 0.5rem;
-    height: 30px;
-    width: 150px;
-}
-.submit
-{
-    border: none;
-    user-select: none;
-    border-radius: 10px;
-    color: #5d0808;
-    font-family: "Century Gothic";
-    font-weight: bold;
-    alignment: center;
-    cursor: pointer;
-    margin-top: 1rem;
-    height: 35px;
-    width: 190px;
-    background: #dee4f4;
-}
-    .submit:hover
-    {
-        color: #ec1718;
-        background-color: #c2cdec;
-    }
-
-</style>
+<div class="login_header" style="display:flex;">
 
 <nav>
   <a href="/register">Регистрация</a>
 </nav>
 
-<%= render 'shared/errors' %>
+<h1> <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Caveat">
+  Dragons & Gems</h1>
+      <a style="visibility: hidden" href="/register">Регистрация</a>
+</div>
 
-
-<h1
-    style="color:#ec1718; font-style: italic; cursor: default; margin: 0.5rem; font-family: Caveat;
-      font-size: 7em; padding-top: 0px; text-align: center; user-select: none">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Caveat">Dragons & Gems</h1>
-
-<div class="content-container" style="text-align: center;">
+<div class="content-container" style="text-align: center">
   <%= image_tag ("drakosha.png"), class: "image" %>
 
+  <div class="error-display">
+  <%= render 'shared/errors'%>
+  </div>
   <div class="input-line">
   <%= form_for :player, class: 'user_data_form' do |f| %>
       <%= label_tag :email, 'Email:', class: "input_text" %>
