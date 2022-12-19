@@ -35,6 +35,7 @@ jobs:
     runs-on: self-hosted
     needs: rspec-test
     steps:
+      - uses: actions/checkout@v1
       - name: Run
         run: |
           sudo docker stop server
