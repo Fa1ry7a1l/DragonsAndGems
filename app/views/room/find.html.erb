@@ -1,7 +1,11 @@
 <nav>
   <%= button_to "Назад", root_path, method: :get%>
 </nav>
-
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %>
 <%= form_for :room, class: 'room_data_form' do |f| %>
 
   <div class="input_item">

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_09_093122) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_17_131801) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -142,12 +142,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_09_093122) do
     t.bigint "character_5_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "tag", null: false
     t.index ["character_1_id"], name: "index_rooms_on_character_1_id"
     t.index ["character_2_id"], name: "index_rooms_on_character_2_id"
     t.index ["character_3_id"], name: "index_rooms_on_character_3_id"
     t.index ["character_4_id"], name: "index_rooms_on_character_4_id"
     t.index ["character_5_id"], name: "index_rooms_on_character_5_id"
     t.index ["dungeon_master_id"], name: "index_rooms_on_dungeon_master_id"
+    t.index ["tag"], name: "index_rooms_on_tag", unique: true
   end
 
   create_table "spells", force: :cascade do |t|
