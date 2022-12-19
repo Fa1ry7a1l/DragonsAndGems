@@ -27,7 +27,7 @@ class RoomController < ApplicationController
   end
 
   def show
-    @lists = Player.where(id: session[:player_id])[0].characters_lists
+    @lists = Player.where(id: session[:user_id])[0].characters_lists
   end
 
   def join
