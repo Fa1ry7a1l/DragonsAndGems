@@ -1,0 +1,30 @@
+.login-header
+{
+    color:#ec1718;
+    font-style: italic;
+    cursor: default;
+    margin: auto;
+    font-family: Caveat;
+    font-size: 7.5vw;
+    user-select: none
+}
+
+.error-display-login
+{
+    font-family: "Century Gothic";
+    color: #ec1718;
+    font-weight: bold;
+    height: 15px;
+    width: 150px;
+    cursor: default;
+    user-select: none;
+    margin: auto;
+    padding-bottom: 1rem;
+}
+
+.input-line-login
+{
+    height: 100px;
+    width: 350px;
+    margin: auto;
+}
