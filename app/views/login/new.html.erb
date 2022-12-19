@@ -1,12 +1,11 @@
-<%= stylesheet_link_tag 'application.css' %>
+<%= stylesheet_link_tag 'login_page.css' %>
 
 <div class="login_header" style="display:flex;">
-
 <nav>
   <a href="/register">Регистрация</a>
 </nav>
 
-<h1> <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Caveat">
+<h1 class="login-header"> <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Caveat">
   Dragons & Gems</h1>
       <a style="visibility: hidden" href="/register">Регистрация</a>
 </div>
@@ -14,10 +13,10 @@
 <div class="content-container" style="text-align: center">
   <%= image_tag ("drakosha.png"), class: "image" %>
 
-  <div class="error-display">
+  <div class="error-display-login">
   <%= render 'shared/errors'%>
   </div>
-  <div class="input-line">
+  <div class="input-line-login">
   <%= form_for :player, class: 'user_data_form' do |f| %>
       <%= label_tag :email, 'Email:', class: "input_text" %>
       <%= f.email_field :email, class: "input_field" %>
@@ -29,4 +28,3 @@
   <% end %>
     <%= button_to "Log In with Google", "/auth/google_oauth2", class: "submit" %>
 </div>
-</html>

@@ -13,18 +13,6 @@
  *= require_tree .
  *= require_self
  */
-
-h1
-{
-    color:#ec1718;
-    font-style: italic;
-    cursor: default;
-    margin: auto;
-    font-family: Caveat;
-    font-size: 7.5vw;
-    user-select: none
-}
-
 a:link, a:visited
 {
     border-radius: 10px;
@@ -56,12 +44,6 @@ a:hover
     height:48%;
 }
 
-.input-line
-{
-    height: 100px;
-    width: 350px;
-    margin: auto;
-}
 .input_text
 {
     text-align: left;
@@ -97,17 +79,4 @@ a:hover
 {
     color: #ec1718;
     background-color: #c2cdec;
-}
-
-.error-display
-{
-    font-family: "Century Gothic";
-    color: #ec1718;
-    font-weight: bold;
-    height: 15px;
-    width: 150px;
-    cursor: default;
-    user-select: none;
-    margin: auto;
-    padding-bottom: 1rem;
 }

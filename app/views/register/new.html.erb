@@ -1,26 +1,29 @@
+<%= stylesheet_link_tag 'reg_page.css' %>
+
 <nav>
   <%= link_to 'Вход', login_path %>
 </nav>
-<%= render 'shared/errors' %>
-<%= form_for :player, class: 'user_data_form' do |f| %>
 
-  <div class="input_item">
-    <%= label_tag :player_name, 'Имя пользователя' %>
-    <%= f.text_field :player_name %>
+<h1 class="reg-header">Добро пожаловать :)</h1>
+<h2 class="reg-subheader">Пожалуйста, введите данные ниже:</h2>
+
+<%= form_for :player, class: 'user_data_form' do |f| %>
+  <div class="input-line-reg">
+  <%= label_tag :player_name, 'Имя пользователя:', class:"input-text-reg" %>
+  <%= f.text_field :player_name, class:"input_field" %>
+
+  <%= label_tag :email, 'Email:', class:"input-text-reg" %>
+  <%= f.email_field :email, class:"input_field" %>
+
+  <%= label_tag :password, 'Пароль:', class:"input-text-reg" %>
+  <%= f.password_field :password, class:"input_field" %>
+
+  <%= label_tag :password_confirmation, 'Подтверждение пароля:', class:"input-text-reg" %>
+  <%= f.password_field :password_confirmation, class:"input_field" %>
   </div>
-  <div class="input_item">
-    <%= label_tag :email, 'Email' %>
-    <%= f.email_field :email %>
-  </div>
-  <div class="input_item">
-    <%= label_tag :password, 'Пароль' %>
-    <%= f.password_field :password %>
-  </div>
-  <div class="input_item">
-    <%= label_tag :password_confirmation, 'Подтверждение пароля' %>
-    <%= f.password_field :password_confirmation %>
-  </div>
-  <div class="input_item">
-    <%= f.submit 'Зарегистрироваться' %>
+  <div style="text-align: center; margin-top: 6rem">
+  <%= f.submit 'Зарегистрироваться', class:"submit" %>
   </div>
 <% end %>
+
+<div class="error-display-reg"> <%= render 'shared/errors' %> </div>

@@ -1,0 +1,53 @@
+.error-display-reg
+{
+    margin: 0;
+    text-align: center;
+    font-family: "Century Gothic";
+    color: #ec1718;
+    font-weight: bold;
+    cursor: default;
+    user-select: none;
+}
+
+.reg-header
+{
+    margin-top: 5rem;
+    font-family: "Century Gothic";
+    font-size: 3.5rem;
+    color: #22b5f1;
+    font-weight: bold;
+    cursor: default;
+    user-select: none;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.reg-subheader
+{
+    margin-top: 0.25rem;
+    margin-bottom: 6rem;
+    font-family: "Century Gothic";
+    color: #2d94be;
+    font-weight: bold;
+    cursor: default;
+    user-select: none;
+    text-align: center;
+}
+
+.input-line-reg
+{
+    height: 100px;
+    width: 375px;
+    margin: auto;
+}
+
+.input-text-reg
+{
+    text-align: left;
+    font-family: "Century Gothic";
+    font-weight: bold;
+    float: left;
+    margin-bottom: 0.25rem;
+    height: 35px;
+    width: 200px;
+}
