@@ -19,4 +19,7 @@ Rails.application.routes.draw do
   get '/room/:tag_lobby', to: 'room#show'
   post '/room/find', to: 'room#join'
 
+  get '/character/list', to: 'character#list'
+  get '/character/new', to: 'character#new'
+  post '/character/new', to: 'character#create'
 end
