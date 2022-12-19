@@ -15,7 +15,7 @@ class RoomController < ApplicationController
   end
 
   def create
-    master_id = session[:player_id]
+    master_id = session[:user_id]
     room_name = create_params[:room_name]
     room_tag = generate_tag
     while Room.where(tag: room_tag).count != 0 do
