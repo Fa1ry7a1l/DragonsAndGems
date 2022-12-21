@@ -3,16 +3,18 @@
 }</style>
 
 <nav>
-  <%= button_to "Назад", root_path, method: :get%>
+  <%= button_to "Назад", root_path, method: :get, class:"back_button"%>
 </nav>
 
+<div style="margin:30vh">
 <%= form_for :room, class: 'room_data_form' do |f| %>
 
-  <div class="input_item">
-    <%= label_tag :room_name, 'Название лобби' %>
-    <%= f.text_field :room_name %>
+  <div class="lobby-container">
+    <%= label_tag :room_name, 'Название лобби', class:"input_text-lobby" %>
+    <%= f.text_field :room_name, class:"input_field-lobby" %>
   </div>
-  <div class="input_item">
+    <div style="text-align: center">
     <%= f.submit 'Создать', class:"home_button" %>
-  </div>
+    </div>
 <% end %>
+</div>

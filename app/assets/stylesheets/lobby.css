@@ -26,8 +26,7 @@
     height: 2rem;
     width: 6rem;
     background: #c4f6ff;
-    transition: background 0.3s;
-    transition: text-shadow;
+    transition: background 0.4s;
     margin-left: 0.8rem;
     margin-top: 0.8rem;
 }
