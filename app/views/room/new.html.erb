@@ -1,3 +1,7 @@
+<style>body {
+    background-color: #f4f7ff;
+}</style>
+
 <nav>
   <%= button_to "Назад", root_path, method: :get%>
 </nav>
@@ -9,6 +13,6 @@
     <%= f.text_field :room_name %>
   </div>
   <div class="input_item">
-    <%= f.submit 'Создать' %>
+    <%= f.submit 'Создать', class:"home_button" %>
   </div>
 <% end %>
