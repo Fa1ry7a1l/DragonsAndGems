@@ -18,7 +18,8 @@
     <%= label_tag :alignment, 'Мировозрение:', class:"input-text-reg" %>
     <%= f.text_field :alignment, class:"input_field" %>
 
-
+    <%= label_tag :proficiency_bonus, 'Бонус владения:', class:"input-text-reg" %>
+    <%= f.number_field :proficiency_bonus, class:"input_field" %>
 
 
     <%= label_tag :exp, 'Опыт:', class:"input-text-reg" %>
@@ -45,8 +46,8 @@
     <%= label_tag :max_hp, 'Максимальный уровень здоровья:', class:"input-text-reg" %>
     <%= f.number_field :max_hp, class:"input_field" %>
 
-    <%= label_tag :curr_hp, 'Текущий уровень здоровья:', class:"input-text-reg" %>
-    <%= f.number_field :curr_hp, class:"input_field" %>
+    <%= label_tag :current_hp, 'Текущий уровень здоровья:', class:"input-text-reg" %>
+    <%= f.number_field :current_hp, class:"input_field" %>
 
 
     <%= label_tag :temporary_hp, 'Временный бонус здоровья:', class:"input-text-reg" %>
