@@ -36,9 +36,19 @@
 
 .input-line-reg
 {
+    justify-content: space-between;
     height: 100px;
-    width: 375px;
+    width: 500px;
     margin: auto;
+}
+
+
+.input-field-reg
+{
+    float: right;
+    margin-bottom: 0.25rem;
+    height: 20px;
+    width: 150px;
 }
 
 .input-text-reg
@@ -48,6 +58,6 @@
     font-weight: bold;
     float: left;
     margin-bottom: 0.25rem;
-    height: 35px;
-    width: 200px;
+    height: 25px;
+    width: 240px;
 }
