@@ -15,24 +15,26 @@
  */
 a:link, a:visited
 {
+    opacity: 0.7;
     border-radius: 10px;
-    color: #5d0808;
+    color: black;
     text-decoration: none;
     font-family: "Century Gothic";
     font-weight: bold;
-    background-color: #dee4f4;
+    background-color: #c4f6ff;
     text-align: center;
     display: inline-block;
     padding: 14px 25px;
     margin-top: 0.5rem;
     margin-left: 0.5rem;
     user-select: none;
+    transition: opacity 0.3s;
 }
 a:hover
 {
-    color: #ec1718;
-    background-color: #c2cdec;
+    opacity: 1;
     text-decoration: none;
+    transition: opacity 0.3s;
 }
 
 .image
@@ -66,17 +68,17 @@ a:hover
     border: none;
     user-select: none;
     border-radius: 10px;
-    color: #5d0808;
     font-family: "Century Gothic";
     font-weight: bold;
     cursor: pointer;
     margin-bottom: 0.5rem;
     height: 35px;
     width: 190px;
-    background: #dee4f4;
+    background: #c4f6ff;
+    transition: background 0.3s;
 }
 .submit:hover
 {
-    color: #ec1718;
-    background-color: #c2cdec;
+    transition: background 0.3s;
+    background-color: #8bf1ff;
 }

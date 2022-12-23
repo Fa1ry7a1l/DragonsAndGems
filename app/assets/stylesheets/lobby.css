@@ -1,0 +1,45 @@
+.input_field-lobby
+{
+    float:right;
+    width: 10vw;
+    height: 4vh;
+    border-width: 4px;
+    border-color: #cdd6fc;
+}
+
+.input_text-lobby
+{
+    float:left;
+    font-family: "Century Gothic";
+    font-weight: bold;
+    font-size: 2vw;
+}
+
+.back_button
+{
+    border: none;
+    user-select: none;
+    border-radius: 20px;
+    font-family: "Century Gothic";
+    font-weight: bold;
+    cursor: pointer;
+    height: 2rem;
+    width: 6rem;
+    background: #c4f6ff;
+    transition: background 0.4s;
+    margin-left: 0.8rem;
+    margin-top: 0.8rem;
+}
+
+.back_button:hover
+{
+    transition: background 0.3s;
+    background: #6cd6ff;
+}
+
+.lobby-container
+{
+    width: 36vw;
+    margin: auto;
+    padding: 5rem;
+}

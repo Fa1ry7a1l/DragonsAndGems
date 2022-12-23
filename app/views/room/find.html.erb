@@ -1,18 +1,25 @@
+<style>body {
+    background-color: #f4f7ff;
+}</style>
+
 <nav>
-  <%= button_to "Назад", root_path, method: :get%>
+  <%= button_to "Назад", root_path, method: :get, class:"back_button"%>
 </nav>
+
 <% flash.each do |type, msg| %>
-  <div>
+  <div class="error-display-login">
     <%= msg %>
   </div>
 <% end %>
-<%= form_for :room, class: 'room_data_form' do |f| %>
 
-  <div class="input_item">
-    <%= label_tag :room_tag, 'Идентификатор лобби' %>
-    <%= f.text_field :room_tag %>
+<div style="margin:30vh">
+<%= form_for :room, class: 'room_data_form' do |f| %>
+  <div class="lobby-container">
+    <%= label_tag :room_tag, 'Идентификатор лобби:', class:"input_text-lobby" %>
+    <%= f.text_field :room_tag, class:"input_field-lobby" %>
   </div>
-  <div class="input_item">
-    <%= f.submit 'Присоединиться' %>
+  <div style="text-align: center">
+    <%= f.submit 'Присоединиться', class:"home_button" %>
   </div>
 <% end %>
+</div>

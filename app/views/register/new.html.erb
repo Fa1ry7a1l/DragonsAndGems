@@ -10,16 +10,16 @@
 <%= form_for :player, class: 'user_data_form' do |f| %>
   <div class="input-line-reg">
   <%= label_tag :player_name, 'Имя пользователя:', class:"input-text-reg" %>
-  <%= f.text_field :player_name, class:"input_field" %>
+  <%= f.text_field :player_name, class:"input-field-reg" %>
 
   <%= label_tag :email, 'Email:', class:"input-text-reg" %>
-  <%= f.email_field :email, class:"input_field" %>
+  <%= f.email_field :email, class:"input-field-reg" %>
 
   <%= label_tag :password, 'Пароль:', class:"input-text-reg" %>
-  <%= f.password_field :password, class:"input_field" %>
+  <%= f.password_field :password, class:"input-field-reg" %>
 
   <%= label_tag :password_confirmation, 'Подтверждение пароля:', class:"input-text-reg" %>
-  <%= f.password_field :password_confirmation, class:"input_field" %>
+  <%= f.password_field :password_confirmation, class:"input-field-reg" %>
   </div>
   <div style="text-align: center; margin-top: 6rem">
   <%= f.submit 'Зарегистрироваться', class:"submit" %>

@@ -1,0 +1,41 @@
+.home_button_container
+{
+    width: 33rem;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.home_button
+{
+    width: 15rem;
+    height: 4rem;
+    border-radius: 20px;
+    border-color: transparent;
+    user-select: none;
+    color: black;
+    background: linear-gradient(90deg, rgba(208,208,254,1) 0%, rgba(195,248,254,1) 50%, rgba(208,208,254,1) 100%);
+    font-family: "Century Gothic";
+    font-weight: bold;
+    font-size: 1.3rem;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: all 0.5s;
+}
+
+.home_button:hover
+{
+    transition: all 0.3s;
+    border-color: rgba(213, 140, 255, 0.44);
+    border-width: 5px;
+}
+
+.home-header
+{
+    font-family: "Century Gothic";
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin-bottom: 4rem;
+    cursor: default;
+    user-select: none
+}
