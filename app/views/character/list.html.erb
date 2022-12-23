@@ -1,6 +1,13 @@
+<style>body {
+    background-color: #f4f7ff;
+}</style>
+
+<div style="text-align: center">
+  <%= button_to "Создать нового персонажа", character_new_path, method: :get, class:"home_button"%>
+</div>
+
 <%- @characters.each do |character| %>
   <p >
     <%= character.character_name %>
   </p>
 <% end %>
-<%= button_to "Создать нового персонажа", character_new_path, method: :get%>
