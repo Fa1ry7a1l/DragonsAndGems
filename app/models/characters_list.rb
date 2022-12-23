@@ -5,7 +5,7 @@ class CharactersList < ApplicationRecord
   validates :exp, :armor_class, :initiative,
             :speed, :max_hp, :current_hp, :temporary_hp, :money,
             :numericality => { :greater_than_or_equal_to => 0 }
-  validates :inspiration, inclusion: 0..1
+  # validates :inspiration, inclusion: { in: (0..1) }
 
   belongs_to :player
   has_many :spells

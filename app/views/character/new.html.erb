@@ -19,6 +19,9 @@
     <%= label_tag :race, 'Раса:', class:"input-text-char" %>
     <%= f.text_field :race, class:"input-field-char" %>
 
+    <%= label_tag :proficiency_bonus, 'Бонус владения:', class:"input-text-reg" %>
+    <%= f.number_field :proficiency_bonus, class:"input_field" %>
+	
     <%= label_tag :alignment, 'Мировозрение:', class:"input-text-char" %>
     <%= f.text_field :alignment, class:"input-field-char" %>
 
@@ -60,6 +63,9 @@
           Перки персонажа:
         </p>
 
+    <%= label_tag :current_hp, 'Текущий уровень здоровья:', class:"input-text-reg" %>
+    <%= f.number_field :current_hp, class:"input_field" %>
+	
         <%= label_tag :acrobatics, 'Акробатика:', class:"input-text-char" %>
         <%= f.number_field :acrobatics, class:"input-field-char" %>
 
