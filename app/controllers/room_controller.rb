@@ -3,14 +3,7 @@ class RoomController < BaseAuthController
   def new
   end
 
-  def generate_tag
-    room_tag = ""
-    (1..6).each { |i|
-      room_tag += rand(10).to_s
-    }
 
-    room_tag
-  end
 
   def find
   end
@@ -22,7 +15,7 @@ class RoomController < BaseAuthController
     while Room.where(tag: room_tag).count != 0 do
       room_tag = generate_tag
     end
-
+    session[:room] = room_tag
     Room.create(dungeon_master_id: master_id, room_name: room_name, tag: room_tag)
     redirect_to "/room/#{room_tag}"
   end
@@ -46,5 +39,14 @@ class RoomController < BaseAuthController
   private
   def create_params
     params.require(:room).permit(:room_name, :room_tag)
+    end
+
+  def generate_tag
+    room_tag = ""
+    (1..6).each { |i|
+      room_tag += rand(10).to_s
+    }
+
+    room_tag
   end
 end
