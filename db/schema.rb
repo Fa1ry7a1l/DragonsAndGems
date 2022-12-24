@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_17_131801) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_22_090426) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -47,24 +47,24 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_17_131801) do
 
   create_table "character_perks", force: :cascade do |t|
     t.bigint "character_id", null: false
-    t.boolean "acrobatics", null: false
-    t.boolean "animal_handling", null: false
-    t.boolean "arcana", null: false
-    t.boolean "athletics", null: false
-    t.boolean "deception", null: false
-    t.boolean "history", null: false
-    t.boolean "insight", null: false
-    t.boolean "intimidation", null: false
-    t.boolean "investigation", null: false
-    t.boolean "medicine", null: false
-    t.boolean "nature", null: false
-    t.boolean "perception", null: false
-    t.boolean "performance", null: false
-    t.boolean "persuasion", null: false
-    t.boolean "religion", null: false
-    t.boolean "sleight_of_hand", null: false
-    t.boolean "stealth", null: false
-    t.boolean "survival", null: false
+    t.integer "acrobatics", null: false
+    t.integer "animal_handling", null: false
+    t.integer "arcana", null: false
+    t.integer "athletics", null: false
+    t.integer "deception", null: false
+    t.integer "history", null: false
+    t.integer "insight", null: false
+    t.integer "intimidation", null: false
+    t.integer "investigation", null: false
+    t.integer "medicine", null: false
+    t.integer "nature", null: false
+    t.integer "perception", null: false
+    t.integer "performance", null: false
+    t.integer "persuasion", null: false
+    t.integer "religion", null: false
+    t.integer "sleight_of_hand", null: false
+    t.integer "stealth", null: false
+    t.integer "survival", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["character_id"], name: "index_character_perks_on_character_id"
@@ -72,12 +72,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_17_131801) do
 
   create_table "character_saving_throws", force: :cascade do |t|
     t.bigint "character_id", null: false
-    t.integer "strength", null: false
-    t.integer "dexterity", null: false
-    t.integer "constitution", null: false
-    t.integer "intelligence", null: false
-    t.integer "wisdom", null: false
-    t.integer "charisma", null: false
+    t.boolean "strength", null: false
+    t.boolean "dexterity", null: false
+    t.boolean "constitution", null: false
+    t.boolean "intelligence", null: false
+    t.boolean "wisdom", null: false
+    t.boolean "charisma", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["character_id"], name: "index_character_saving_throws_on_character_id"
@@ -100,7 +100,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_17_131801) do
     t.integer "money", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "lvl", null: false
     t.index ["player_id"], name: "index_characters_lists_on_player_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "body"
+    t.bigint "rooms_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "owner", null: false
+    t.index ["rooms_id"], name: "index_messages_on_rooms_id"
   end
 
   create_table "monster_skills", force: :cascade do |t|
@@ -142,7 +152,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_17_131801) do
     t.bigint "character_5_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "tag", null: false
+    t.integer "tag", null: false
+    t.integer "player_1"
+    t.integer "player_2"
+    t.integer "player_3"
+    t.integer "player_4"
+    t.integer "player_5"
     t.index ["character_1_id"], name: "index_rooms_on_character_1_id"
     t.index ["character_2_id"], name: "index_rooms_on_character_2_id"
     t.index ["character_3_id"], name: "index_rooms_on_character_3_id"

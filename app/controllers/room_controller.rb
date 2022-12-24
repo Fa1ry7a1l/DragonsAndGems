@@ -1,4 +1,5 @@
-class RoomController < ApplicationController
+class RoomController < BaseAuthController
+
   def new
   end
 
@@ -33,6 +34,7 @@ class RoomController < ApplicationController
   def join
     room_tag = create_params[:room_tag]
     if Room.where(tag: room_tag).count != 0
+      session[:room] = room_tag
       redirect_to "/room/#{room_tag}"
     else
       flash[:error] = "Room not found"
