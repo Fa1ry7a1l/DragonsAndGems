@@ -1,21 +1,27 @@
 class MessageController < BaseAuthController
 
   def index
-    room_tag = session[:room]
-    @room = Room.where(tag: room_tag)[0]
-    pp @room
-    @messages = Message.where(rooms_id: @room.id)
-    pp @messages
+    @messages = Room.where(tag: session[:room])[0].messages
   end
 
   def send_message
-    room_tag = session[:room]
+    @room_tag = session[:room]
+    pp @room_tag
+    pp getMessageParams
 
-    message = Message.create(body: params.require(:body))
-    message.room = room_tag
-    message.save
-    return render status: :bad_request unless message.valid?
+    message = Message.new(body: getMessageParams, room_id: Room.where(tag: @room_tag)[0].id, owner:@current_user.id)
+    pp message
+    pp message.save
+    pp message.valid?
+    pp message.errors.full_messages
+    ##return render status: :bad_request unless message.valid?
 
-    redirect_to "/room/#{room_tag}"
+    redirect_to "/room/#{@room_tag}"
+  end
+
+  private
+
+  def getMessageParams
+    params.require(:message).require(:body)
   end
 end

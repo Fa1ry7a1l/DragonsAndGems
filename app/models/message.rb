@@ -1,5 +1,5 @@
 class Message < ApplicationRecord
-  validates :body, :owner, presence: true
+  validates :body,:owner, presence: true
   belongs_to :room
 
   def direction(user)

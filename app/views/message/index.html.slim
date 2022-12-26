@@ -1,5 +1,0 @@
-.row.justify-content-center
-  .col-8.px-0
-    .px-4.py-5.chat-box.bg-white
-      -@messages.each do |m|
-        = render partial: m.direction(@current_user), locals: {message: m}

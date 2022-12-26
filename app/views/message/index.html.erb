@@ -1,0 +1,14 @@
+<div>
+  <%@messages.each do |message| message  %>
+    <%= render "#{message.direction(@current_user)}", message: message %>
+  <% end %>
+  <%= form_for :message do |f| %>
+    <div>
+      <%= label_tag :body, 'текст' %>
+      <%= f.text_field :body %>
+    </div>
+    <div style="text-align: center">
+      <%= f.submit 'отправить'  %>
+    </div>
+  <% end %>
+</div>

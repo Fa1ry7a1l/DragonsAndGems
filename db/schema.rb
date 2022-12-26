@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_22_090426) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_26_153626) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -106,11 +106,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_22_090426) do
 
   create_table "messages", force: :cascade do |t|
     t.text "body"
-    t.bigint "rooms_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "owner", null: false
-    t.index ["rooms_id"], name: "index_messages_on_rooms_id"
+    t.bigint "room_id"
+    t.index ["room_id"], name: "index_messages_on_room_id"
   end
 
   create_table "monster_skills", force: :cascade do |t|
@@ -130,6 +130,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_22_090426) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "room_id"
+    t.index ["room_id"], name: "index_players_on_room_id"
   end
 
   create_table "room_monsters", force: :cascade do |t|
@@ -211,6 +213,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_22_090426) do
   add_foreign_key "character_saving_throws", "characters_lists", column: "character_id"
   add_foreign_key "characters_lists", "players"
   add_foreign_key "monster_skills", "world_monsters", column: "owner_id"
+  add_foreign_key "players", "rooms"
   add_foreign_key "room_monsters", "rooms"
   add_foreign_key "room_monsters", "world_monsters"
   add_foreign_key "rooms", "characters_lists", column: "character_1_id"
