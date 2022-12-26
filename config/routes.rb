@@ -16,13 +16,11 @@ Rails.application.routes.draw do
   get '/room/create', to: 'room#new'
   post '/room/create', to: 'room#create'
   get '/room/find', to: 'room#find'
-
-  get '/room/:tag_lobby', to: 'message#index'
-  post '/room/:tag_lobby', to: 'message#send_message'
-=begin
-  get '/room/:tag_lobby', to: 'room#show'
-=end
   post '/room/find', to: 'room#join'
+
+
+  get '/room/:tag_lobby', to: 'room#show'
+  post '/room/:tag_lobby/message', to: 'message#send_message'
 
   get '/character/list', to: 'character#list'
   get '/character/new', to: 'character#new'
