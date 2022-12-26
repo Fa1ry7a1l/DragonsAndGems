@@ -1,6 +1,8 @@
 //= require jquery3
 //= require jquery_ujs
 
+import chatRoomChannel from "../channels/chat_room_channel";
+
 function getAuthToken() {
     console.log("Случилось чудо")
     return $('meta[name=csrf-token]').attr('content');
