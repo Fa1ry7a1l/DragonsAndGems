@@ -37,7 +37,7 @@
     height: 1600px;
     margin: auto;
     border-radius: 20px;
-    background: #dee4f4;
+    background: #dde5f8;
 }
 
 .main-info-container
@@ -48,10 +48,30 @@
     display: inline-block;
     margin-left: 20px;
     padding: 20px;
-    width: 900px;
-    height: 450px;
+    width: 910px;
+    height: 460px;
     border-radius: 30px;
-    background: #b4b6dd;
+    background: #bbbdec;
+}
+
+.main-info-left
+{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    float: left;
+    width: 400px;
+    height: 370px;
+}
+
+.main-info-right
+{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    float: right;
+    width: 500px;
+    height: 370px;
 }
 
 .perks-container
@@ -62,7 +82,7 @@
     width: 420px;
     height: 1000px;
     border-radius: 30px;
-    background: #b4b6dd;
+    background: #bbbdec;
 }
 
 .characteristics-container
@@ -70,17 +90,15 @@
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    padding-top: 30px;
     margin-bottom: 30px;
     margin-top: 5px;
     margin-right: 2px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 30px 20px;
     float: right;
     width: 420px;
     height: 390px;
     border-radius: 30px;
-    background: #b4b6dd;
+    background: #bbbdec;
 }
 
 .saving-throws-container
@@ -94,7 +112,7 @@
     width: 420px;
     height: 350px;
     border-radius: 30px;
-    background: #b4b6dd;
+    background: #bbbdec;
 }
 
 .input-text-char
@@ -119,6 +137,16 @@
     width: 55%;
 }
 
+.input-text-char-main
+{
+    font-family: "Century Gothic";
+    float:left;
+    margin-left: 1px;
+    padding: 2.75%;
+    height: 5.75%;
+    width: 55%;
+}
+
 
 .input-field-char
 {
@@ -129,7 +157,7 @@
     height: 3%;
     width: 30%;
     border: none;
-    background: #dee4f4;
+    background: #dde5f8;
     border-radius: 5px;
 }
 
@@ -141,7 +169,19 @@
     margin-right: 1px;
     width: 30%;
     border: none;
-    background: #dee4f4;
+    background: #dde5f8;
+    border-radius: 5px;
+}
+
+.input-field-char-main
+{
+    padding: 2%;
+    float:right;
+    margin-bottom: 0.5%;
+    margin-right: 1px;
+    width: 30%;
+    border: none;
+    background: #dde5f8;
     border-radius: 5px;
 }
 
@@ -156,12 +196,12 @@
     margin-bottom:5%;
     margin-right: 8%;
     margin-left: 25%;
-    height: 6.5%;
-    width: 6%;
+    height: 20px;
+    width: 20px;
     border-radius: 50%;
     border-width: 5px;
     border-color: transparent;
-    background: #dee4f4;
+    background: #dde5f8;
 }
 
 .checkbox-char:hover{
@@ -173,4 +213,11 @@
 {
     transition: all 0.3s;
     background-color: #6162b0;
+}
+
+.checkbox-main
+{
+    float: none;
+    margin-top: 1%;
+    margin-left: 20%;
 }
