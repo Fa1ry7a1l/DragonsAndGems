@@ -7,10 +7,10 @@
       <%= render "#{message.direction(@current_user.id)}", message: message %>
     <% end %>
   </div>
-  <%= form_for :message, id:'message-form' do |f| %>
+  <%= form_with id:'message-form' do |f| %>
     <div>
       <%= label_tag :body, 'текст' %>
-      <%= f.text_field :body %>
+      <%= f.text_field :body, id: 'message_body' %>
     </div>
     <div style="text-align: center">
       <%= f.submit 'отправить'  %>

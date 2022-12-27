@@ -29,6 +29,6 @@ consumer.subscriptions.create("ChatChannel", {
     received(data) {
         console.log("получили данные")
 
-        appendMessage($('#chat-box'), data);
+        appendMessage(document.getElementById('chat-box'), data);
     }
 });

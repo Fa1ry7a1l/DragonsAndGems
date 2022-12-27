@@ -1,36 +1,27 @@
-
-
-
 function getAuthToken() {
     console.log("Случилось чудо")
-    return document.head.querySelector('meta[name=csrf-token]').content;
+    return document.querySelector("[name='csrf-token']").content
 }
 
 function sendMessage(data) {
     let token = getAuthToken()
     console.log("Случилось чудо2")
 
-    fetch(window.location.href + `/message/`, {
+    fetch(window.location.href+'/message/',
+        {
         method: "POST",
-        redirect: 'follow',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: {
-            'body': data,
-            'authenticity_token': token
-        },
-        dataType: "json",
-    }).then(data  =>  {
-        console.log(data)
-        console.log(data["body"])
-        appendIncomingMessage(document.getElementById('chat-box'), data)
-    }).catch((error) => {
-        console.log(error)
-    });
+            headers: {
+                "X-CSRF-Token": getAuthToken(),
+                "Content-Type": "application/json"
+            },
+        body: JSON.stringify(data)}
+    ).then(response=>response.json())
+        .then(data=>appendIncomingMessage(document.getElementById('chat-box'), data))
 }
 
 function appendIncomingMessage(element, message) {
+    // Это не так работает
+    // 
     element.append(`<div style="width: 100px">
         <div style="color: darkblue; border-radius: 3px">
             <div>`+
@@ -43,18 +34,21 @@ function appendIncomingMessage(element, message) {
     </div>`);
     window.scrollTo(0,document.body.scrollHeight);
 }
-
-window.onload = function () {
-    console.log("done")
-    document.getElementById('message-form').addEventListener("submit", function (e) {
+document.addEventListener('DOMContentLoaded',()=>{
+    document.getElementById('message-form').onsubmit = function (e) {
         e.preventDefault();
-
-        if(document.getElementById('message_body').value !== '')
+        const message = document.getElementById('message_body').value
+        if(message !== '')
         {
-            let data = {"token": document.getElementById('message_body').value}
             document.getElementById('message_body').value = ""
-            sendMessage(data)
+           sendMessage({
+               message: {
+                   body: message
+               },
+               authenticity_token: getAuthToken()
+           });
         }
+
         return false;
-    });
-};
+    };
+})
