@@ -1,42 +1,33 @@
-//= require jquery3
-//= require jquery_ujs
 
-//= require action_cable
 
-//= require channels/consumer
-//= require channels/chat_channel
-
-(function() {
-    this.App || (this.App = {});
-
-    App.cable = ActionCable.createConsumer();
-
-}).call(this);
 
 function getAuthToken() {
     console.log("Случилось чудо")
-    return $('meta[name=csrf-token]').attr('content');
+    return document.head.querySelector('meta[name=csrf-token]').content;
 }
 
 function sendMessage(data) {
     let token = getAuthToken()
     console.log("Случилось чудо2")
 
-    $.ajax({
-        type: "POST",
-        url: window.location.href+`/message/`
-        ,
-        data: {
+    fetch(window.location.href + `/message/`, {
+        method: "POST",
+        redirect: 'follow',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: {
             'body': data,
             'authenticity_token': token
         },
         dataType: "json",
-        success: function (data) {
-            console.log(data)
-            console.log(data["body"])
-            appendIncomingMessage($('#chat-box'), data)
-        }
-    })
+    }).then(data  =>  {
+        console.log(data)
+        console.log(data["body"])
+        appendIncomingMessage(document.getElementById('chat-box'), data)
+    }).catch((error) => {
+        console.log(error)
+    });
 }
 
 function appendIncomingMessage(element, message) {
@@ -53,18 +44,17 @@ function appendIncomingMessage(element, message) {
     window.scrollTo(0,document.body.scrollHeight);
 }
 
-$(document).ready(function () {
-    $('#message-form').submit(function (e) {
+window.onload = function () {
+    console.log("done")
+    document.getElementById('message-form').addEventListener("submit", function (e) {
+        e.preventDefault();
+
         if(document.getElementById('message_body').value !== '')
         {
-            const data = $('#message-form').serializeArray().reduce(function (obj, item) {
-                obj[item.name] = item.value;
-                return obj;
-            }, {});
+            let data = {"token": document.getElementById('message_body').value}
             document.getElementById('message_body').value = ""
             sendMessage(data)
         }
-        e.preventDefault(e);
         return false;
     });
-});
+};
