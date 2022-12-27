@@ -1,0 +1,7 @@
+{
+  "name": "DragonsAndGems",
+  "version": "1.0.0",
+  "dependencies": {
+    "@rails/actioncable": "^7.0.4"
+  }
+}
