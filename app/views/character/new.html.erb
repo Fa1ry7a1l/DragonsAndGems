@@ -19,10 +19,10 @@
     <%= label_tag :race, 'Раса:', class:"input-text-char" %>
     <%= f.text_field :race, class:"input-field-char" %>
 
-    <%= label_tag :proficiency_bonus, 'Бонус владения:', class:"input-text-reg" %>
-    <%= f.number_field :proficiency_bonus, class:"input_field" %>
+    <%= label_tag :proficiency_bonus, 'Бонус владения:', class:"input-text-char" %>
+    <%= f.number_field :proficiency_bonus, class:"input-field-char" %>
 	
-    <%= label_tag :alignment, 'Мировозрение:', class:"input-text-char" %>
+    <%= label_tag :alignment, 'Мировоззрение:', class:"input-text-char" %>
     <%= f.text_field :alignment, class:"input-field-char" %>
 
     <%= label_tag :exp, 'Опыт:', class:"input-text-char" %>
@@ -63,8 +63,8 @@
           Перки персонажа:
         </p>
 
-    <%= label_tag :current_hp, 'Текущий уровень здоровья:', class:"input-text-reg" %>
-    <%= f.number_field :current_hp, class:"input_field" %>
+    <%= label_tag :current_hp, 'Текущий уровень здоровья:', class:"input-text-char" %>
+    <%= f.number_field :current_hp, class:"input-field-char" %>
 	
         <%= label_tag :acrobatics, 'Акробатика:', class:"input-text-char" %>
         <%= f.number_field :acrobatics, class:"input-field-char" %>
@@ -127,23 +127,35 @@
       Характеристики персонажа:
     </p>
 
+      <div>
     <%= label_tag :strength, 'Сила:', class:"input-text-char" %>
-    <%= f.number_field :strength, class:"input-field-char" %>
+    <%= f.number_field :strength, class:"input-field-char-ch" %>
+      </div>
 
+      <div>
     <%= label_tag :dexterity, 'Ловкость:', class:"input-text-char" %>
-    <%= f.number_field :dexterity, class:"input-field-char" %>
+    <%= f.number_field :dexterity, class:"input-field-char-ch" %>
+        </div>
 
+      <div>
     <%= label_tag :constitution, 'Телосложение:', class:"input-text-char" %>
-    <%= f.number_field :constitution, class:"input-field-char" %>
+    <%= f.number_field :constitution, class:"input-field-char-ch" %>
+      </div>
 
+      <div>
     <%= label_tag :intelligence, 'Интелект:', class:"input-text-char" %>
-    <%= f.number_field :intelligence, class:"input-field-char" %>
+    <%= f.number_field :intelligence, class:"input-field-char-ch" %>
+      </div>
 
+      <div>
     <%= label_tag :wisdom, 'Мудрость:', class:"input-text-char" %>
-    <%= f.number_field :wisdom, class:"input-field-char" %>
+    <%= f.number_field :wisdom, class:"input-field-char-ch" %>
+      </div>
 
+      <div>
     <%= label_tag :charisma, 'Харизма:', class:"input-text-char" %>
-    <%= f.number_field :charisma, class:"input-field-char" %>
+    <%= f.number_field :charisma, class:"input-field-char-ch" %>
+      </div>
     </div>
 
     <div class="saving-throws-container">
@@ -151,28 +163,28 @@
       Спасброски:
     </p>
 
-    <%= label_tag :strength_throws, 'Сила:', class:"input-text-char" %>
-    <%= f.check_box :strength_throws, class:"input-field-char" %>
+    <%= label_tag :strength_throws, 'Сила:', class:"input-text-char-st" %>
+    <%= f.check_box :strength_throws, class:"checkbox-char" %>
 
-    <%= label_tag :dexterity_throws, 'Ловкость:', class:"input-text-char" %>
-    <%= f.check_box :dexterity_throws, class:"input-field-char" %>
+    <%= label_tag :dexterity_throws, 'Ловкость:', class:"input-text-char-st" %>
+    <%= f.check_box :dexterity_throws, class:"checkbox-char" %>
 
+    <%= label_tag :constitution_throws, 'Телосложение:', class:"input-text-char-st" %>
+    <%= f.check_box :constitution_throws, class:"checkbox-char" %>
 
-    <%= label_tag :constitution_throws, 'Телосложение:', class:"input-text-char" %>
-    <%= f.check_box :constitution_throws, class:"input-field-char" %>
+    <%= label_tag :intelligence_throws, 'Интелект:', class:"input-text-char-st" %>
+    <%= f.check_box :intelligence_throws, class:"checkbox-char" %>
 
-    <%= label_tag :intelligence_throws, 'Интелект:', class:"input-text-char" %>
-    <%= f.check_box :intelligence_throws, class:"input-field-char" %>
+    <%= label_tag :wisdom_throws, 'Мудрость:', class:"input-text-char-st" %>
+    <%= f.check_box :wisdom_throws, class:"checkbox-char" %>
 
-    <%= label_tag :wisdom_throws, 'Мудрость:', class:"input-text-char" %>
-    <%= f.check_box :wisdom_throws, class:"input-field-char" %>
-
-    <%= label_tag :charisma_throws, 'Харизма:', class:"input-text-char" %>
-    <%= f.check_box :charisma_throws, class:"input-field-char" %>
+    <%= label_tag :charisma_throws, 'Харизма:', class:"input-text-char-st" %>
+    <%= f.check_box :charisma_throws, class:"checkbox-char" %>
 
     </div>
+
+      <%= f.submit 'Создать', class:"char-button" %>
     </div>
     </div>
   </div>
-  <%= f.submit 'Создать', class:"char-button" %>
 <% end %>
