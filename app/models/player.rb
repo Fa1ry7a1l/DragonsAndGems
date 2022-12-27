@@ -3,6 +3,7 @@ class Player < ApplicationRecord
   validates :email, uniqueness: true
 
   has_many :characters_lists
+
   has_secure_password
 
   def self.from_omniauth(auth)

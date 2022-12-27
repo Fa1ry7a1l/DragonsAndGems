@@ -1,15 +1,9 @@
-class RoomController < ApplicationController
+class RoomController < BaseAuthController
+
   def new
   end
 
-  def generate_tag
-    room_tag = ""
-    (1..6).each { |i|
-      room_tag += rand(10).to_s
-    }
 
-    room_tag
-  end
 
   def find
   end
@@ -21,18 +15,26 @@ class RoomController < ApplicationController
     while Room.where(tag: room_tag).count != 0 do
       room_tag = generate_tag
     end
-
-    Room.create(dungeon_master_id: master_id, room_name: room_name, tag: room_tag)
+    session[:room] = room_tag
+    room = Room.create(dungeon_master_id: master_id, room_name: room_name, tag: room_tag)
+    player = Player.find_by_id(session[:user_id])
+    player.room_id = room.id
+    player.save
     redirect_to "/room/#{room_tag}"
   end
 
   def show
-    @lists = Player.where(id: session[:user_id])[0].characters_lists
+    @messages = Room.where(tag: session[:room])[0].messages
   end
 
   def join
     room_tag = create_params[:room_tag]
+    rooms = Room.where(tag: room_tag)
     if Room.where(tag: room_tag).count != 0
+      session[:room] = room_tag
+      player = Player.find_by_id(session[:user_id])
+      player.room_id = rooms[0].id
+      player.save
       redirect_to "/room/#{room_tag}"
     else
       flash[:error] = "Room not found"
@@ -44,5 +46,14 @@ class RoomController < ApplicationController
   private
   def create_params
     params.require(:room).permit(:room_name, :room_tag)
+    end
+
+  def generate_tag
+    room_tag = ""
+    (1..6).each { |i|
+      room_tag += rand(10).to_s
+    }
+
+    room_tag
   end
 end

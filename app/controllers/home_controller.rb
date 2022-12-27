@@ -1,5 +1,4 @@
-class HomeController < ApplicationController
-  before_action :authenticate_user
+class HomeController < BaseAuthController
   def defffff
     pp params
   end
