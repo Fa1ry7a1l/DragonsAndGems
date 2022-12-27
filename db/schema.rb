@@ -11,7 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2022_12_26_153626) do
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -155,14 +154,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_26_153626) do
     t.bigint "character_5_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "tag", null: false
-    
+    t.string "tag", null: false
     t.integer "player_1"
     t.integer "player_2"
     t.integer "player_3"
     t.integer "player_4"
     t.integer "player_5"
-    
     t.index ["character_1_id"], name: "index_rooms_on_character_1_id"
     t.index ["character_2_id"], name: "index_rooms_on_character_2_id"
     t.index ["character_3_id"], name: "index_rooms_on_character_3_id"
