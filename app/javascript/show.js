@@ -1,3 +1,5 @@
+import './channels/chat_channel'
+
 function getAuthToken() {
     console.log("Случилось чудо")
     return document.querySelector("[name='csrf-token']").content
