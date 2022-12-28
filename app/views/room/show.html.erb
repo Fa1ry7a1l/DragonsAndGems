@@ -1,16 +1,18 @@
 <% content_for :head do %>
-  <%= javascript_include_tag "show.js", "data-turbolinks-track" => true  %>
+  <%= javascript_import_module_tag  "show" %>
 <% end %>
 <div>
+  <p>Код подключения: <%= @room_tag %></p>
+  <input type="hidden" id="player_id" value="<%= @current_user.id %>" >
   <div id='chat-box'>
     <%@messages.each do |message| message  %>
       <%= render "#{message.direction(@current_user.id)}", message: message %>
     <% end %>
   </div>
-  <%= form_for :message, id:'message-form' do |f| %>
+  <%= form_with id:'message-form' do |f| %>
     <div>
       <%= label_tag :body, 'текст' %>
-      <%= f.text_field :body %>
+      <%= f.text_field :body, id: 'message_body' %>
     </div>
     <div style="text-align: center">
       <%= f.submit 'отправить'  %>

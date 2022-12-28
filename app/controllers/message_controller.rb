@@ -4,23 +4,21 @@ class MessageController < BaseAuthController
 
     @room_tag = session[:room]
 
-    message = Message.new(body: getMessageParams, room_id: Room.where(tag: @room_tag)[0].id, owner: @current_user.id)
+    message = Message.new(body: message_params, room_id: Room.where(tag: @room_tag)[0].id, owner: @current_user.id)
     message.save
     message.valid?
     return render status: :bad_request unless message.valid?
-    respond_to do |format|
-      format.html { redirect_to "/" }
-      format.json { render json: {
-        body: message.body,
-        created_at: message.created_at
-      } }
-    end
-
+    ActionCable.server.broadcast("room_#{@room_tag}",
+                                 { body: message.body,
+                                   created_at: message.created_at,
+                                   owner: @current_user.id,
+                                   owner_name: @current_user.player_name})
+    render status: :ok, json: {}
   end
 
   private
 
-  def getMessageParams
-    params.require(:body).require(:message).require(:body)
+  def message_params
+    params.require(:message).require(:body)
   end
 end

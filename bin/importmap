@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+require_relative "../config/application"
+require "importmap/commands"
+
+pin_all_from "app/javascript/channels", under: "channels"
+
+pin "application", preload: true
+pin "@rails/actioncable", to: "actioncable.esm.js"
