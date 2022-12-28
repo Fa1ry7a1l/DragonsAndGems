@@ -1,16 +1,17 @@
 <% content_for :head do %>
   <%= javascript_include_tag "show.js", "data-turbolinks-track" => true  %>
 <% end %>
-<div>
+
+<div class="chat-container">
   <div id='chat-box' class="chat-box">
     <%@messages.each do |message| message  %>
         <%= render "#{message.direction(@current_user.id)}", message: message%>
     <% end %>
   </div>
   <%= form_for :message, id:'message-form' do |f| %>
-      <%= f.text_field :body, class:"message-input" %>
+      <%= f.text_area :body, class:"message-input" %>
     <div style="text-align: center">
-      <%= f.submit 'отправить'  %>
+      <%= f.submit 'Отправить', class:'submit-button'  %>
     </div>
   <% end %>
 </div>

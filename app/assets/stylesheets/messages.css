@@ -1,8 +1,18 @@
+.chat-container
+{
+    width: 40%;
+    height: 95vh;
+}
+
 .chat-box
 {
-    width: 20%;
+    padding: 5px;
+    overflow: auto;
+    height: 80vh;
     border-radius: 10px;
     background: #f4fcfd;
+    display: flex;
+    flex-direction: column;
 }
 
 .message-line
@@ -13,40 +23,75 @@
 
 .message-line-incoming
 {
-    display: flex;
-    float:right;
-    width: 45%;
+    display:flex;
+    margin-top: 2%;
 }
 
 .incoming
 {
-    background: lightblue;
+    font-family: "Century Gothic";
+    font-size: 115%;
+    padding: 10px;
+    margin-right: 45%;
+    width: 55%;
+    background: #adc6e6;
     border-radius: 3px
 }
 
 .message-line-outcoming
 {
-    display: flex;
-    float:left;
-    width: 45%;
+    display:flex;
+    margin-top: 2%;
 }
 
 .outcoming
 {
-    display: flex;
-    float:right;
-    background: darkblue;
+    font-family: "Century Gothic";
+    font-size: 115%;
+    padding: 10px;
+    margin-left: 45%;
+    width: 55%;
+    background: #6e93f8;
     border-radius: 3px;
 }
 
 .message-input
 {
+    overflow: auto;
     margin-top: 10px;
-    width:20%;
-    padding: 5px;
+    width:95%;
+    padding: 10px;
     height: 30px;
     border: #dee9ec solid 2px;
     border-radius: 5px;
     background: #f7fafc;
     resize: none;
+}
+
+.submit-button
+{
+    font-family: "Century Gothic";
+    background: #d1f8ff;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 1%;
+    transition: background-color 0.2s;
+}
+
+.submit-button:hover
+{
+    cursor: pointer;
+    background: #aeddee;
+    transition: background-color 0.2s;
+}
+
+.text-time
+{
+    font-family: "Century Gothic";
+    opacity: 0.5;
+    font-size: 70%;
+    user-select: none;
+    cursor: auto;
 }
