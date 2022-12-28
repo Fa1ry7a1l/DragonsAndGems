@@ -1,5 +1,5 @@
 <% content_for :head do %>
-  <%= javascript_import_module_tag  "character" %>
+  <%= javascript_import_module_tag "character" %>
 <% end %>
 
 <style>body {
@@ -7,10 +7,10 @@
 }</style>
 
 <nav>
-  <%= button_to "Назад", character_list_path, method: :get, class:"back_button"%>
+  <%= button_to "Назад", character_list_path, method: :get, class: "back_button" %>
 </nav>
 
-<%= form_for :character do |f| %>
+<%= form_for :character_list_characteristics do |f| %>
   <div class="char-container">
 
     <div class="main-info-container">
@@ -20,66 +20,66 @@
 
       <div class="main-info-left">
         <div>
-          <%= label_tag :character_name, 'Имя персонажа:', class:"input-text-char-main" %>
-          <%= f.text_field :character_name, class:"input-field-char-main",value: @character.character_name %>
+          <%= label_tag :character_name, 'Имя персонажа:', class: "input-text-char-main" %>
+          <%= f.text_field :character_name, class: "input-field-char-main", value: @character.character_name %>
         </div>
         <div>
-          <%= label_tag :background, 'Предыстория:', class:"input-text-char-main" %>
-          <%= f.text_field :background, class:"input-field-char-main",value: @character.background%>
+          <%= label_tag :background, 'Предыстория:', class: "input-text-char-main" %>
+          <%= f.text_field :background, class: "input-field-char-main", value: @character.background %>
         </div>
         <div>
-          <%= label_tag :race, 'Раса:', class:"input-text-char-main" %>
-          <%= f.text_field :race, class:"input-field-char-main",value: @character.race %>
+          <%= label_tag :race, 'Раса:', class: "input-text-char-main" %>
+          <%= f.text_field :race, class: "input-field-char-main", value: @character.race %>
         </div>
         <div>
-          <%= label_tag :proficiency_bonus, 'Бонус владения:', class:"input-text-char-main"%>
-          <%= f.number_field :proficiency_bonus, class:"input-field-char-main", id: "30_0",value: @character_characteristics.proficiency_bonus %>
+          <%= label_tag :proficiency_bonus, 'Бонус владения:', class: "input-text-char-main" %>
+          <%= f.number_field :proficiency_bonus, class: "input-field-char-main", id: "30_0", value: @character_characteristics.proficiency_bonus %>
         </div>
         <div>
-          <%= label_tag :alignment, 'Мировоззрение:', class:"input-text-char-main" %>
-          <%= f.text_field :alignment, class:"input-field-char-main",value: @character.alignment %>
+          <%= label_tag :alignment, 'Мировоззрение:', class: "input-text-char-main" %>
+          <%= f.text_field :alignment, class: "input-field-char-main", value: @character.alignment %>
         </div>
         <div>
-          <%= label_tag :exp, 'Опыт:', class:"input-text-char-main" %>
-          <%= f.number_field :exp, class:"input-field-char-main",id: "0_0",value: @character.exp %>
+          <%= label_tag :exp, 'Опыт:', class: "input-text-char-main" %>
+          <%= f.number_field :exp, class: "input-field-char-main", id: "0_0", value: @character.exp %>
         </div>
         <div>
-          <%= label_tag :lvl, 'Уровень:', class:"input-text-char-main" %>
-          <%= f.number_field :lvl, class:"input-field-char-main",id: "0_1",value: @character.lvl %>
+          <%= label_tag :lvl, 'Уровень:', class: "input-text-char-main" %>
+          <%= f.number_field :lvl, class: "input-field-char-main", id: "0_1", value: @character.lvl %>
         </div>
         <div>
-          <%= label_tag :inspiration, 'Вдохновение:', class:"input-text-char-main" %>
-          <%= f.check_box :inspiration, class:"checkbox-char checkbox-main",value: @character.inspiration %>
+          <%= label_tag :inspiration, 'Вдохновение:', class: "input-text-char-main" %>
+          <%= f.check_box :inspiration, class: "checkbox-char checkbox-main", value: @character.inspiration %>
         </div>
       </div>
-      <div class ="main-info-right">
+      <div class="main-info-right">
         <div>
-          <%= label_tag :armor_class, 'Класс защиты:', class:"input-text-char-main" %>
-          <%= f.number_field :armor_class, class:"input-field-char-main",id: "0_2",value: @character.armor_class %>
+          <%= label_tag :armor_class, 'Класс защиты:', class: "input-text-char-main" %>
+          <%= f.number_field :armor_class, class: "input-field-char-main", id: "0_2", value: @character.armor_class %>
         </div>
         <div>
-          <%= label_tag :initiative, 'Инициатива:', class:"input-text-char-main" %>
-          <%= f.number_field :initiative, class:"input-field-char-main",id: "0_3",value: @character.initiative %>
+          <%= label_tag :initiative, 'Инициатива:', class: "input-text-char-main" %>
+          <%= f.number_field :initiative, class: "input-field-char-main", id: "0_3", value: @character.initiative %>
         </div>
         <div>
-          <%= label_tag :speed, 'Скорость:', class:"input-text-char-main" %>
-          <%= f.number_field :speed, class:"input-field-char-main",id: "0_4",value: @character.speed %>
+          <%= label_tag :speed, 'Скорость:', class: "input-text-char-main" %>
+          <%= f.number_field :speed, class: "input-field-char-main", id: "0_4", value: @character.speed %>
         </div>
         <div>
-          <%= label_tag :max_hp, 'Максимальный уровень здоровья:', class:"input-text-char-main" %>
-          <%= f.number_field :max_hp, class:"input-field-char-main",id: "0_5",value: @character.max_hp %>
+          <%= label_tag :max_hp, 'Максимальный уровень здоровья:', class: "input-text-char-main" %>
+          <%= f.number_field :max_hp, class: "input-field-char-main", id: "0_5", value: @character.max_hp %>
         </div>
         <div>
-          <%= label_tag :current_hp, 'Текущий уровень здоровья:', class:"input-text-char-main" %>
-          <%= f.number_field :current_hp, class:"input-field-char-main",id: "0_6",value: @character.current_hp %>
+          <%= label_tag :current_hp, 'Текущий уровень здоровья:', class: "input-text-char-main" %>
+          <%= f.number_field :current_hp, class: "input-field-char-main", id: "0_6", value: @character.current_hp %>
         </div>
         <div>
-          <%= label_tag :temporary_hp, 'Временный бонус здоровья:', class:"input-text-char-main" %>
-          <%= f.number_field :temporary_hp, class:"input-field-char-main",id: "0_7",value: @character.temporary_hp %>
+          <%= label_tag :temporary_hp, 'Временный бонус здоровья:', class: "input-text-char-main" %>
+          <%= f.number_field :temporary_hp, class: "input-field-char-main", id: "0_7", value: @character.temporary_hp %>
         </div>
         <div>
-          <%= label_tag :money, 'Медные монеты:', class:"input-text-char-main" %>
-          <%= f.number_field :money, class:"input-field-char-main",id: "0_8",value: @character.money %>
+          <%= label_tag :money, 'Медные монеты:', class: "input-text-char-main" %>
+          <%= f.number_field :money, class: "input-field-char-main", id: "0_8", value: @character.money %>
         </div>
       </div>
     </div>
@@ -91,59 +91,59 @@
           Перки персонажа:
         </p>
 
-        <%= label_tag :acrobatics, 'Акробатика:', class:"input-text-char" %>
-        <%= f.number_field :acrobatics, class:"input-field-char",id: "02_1",value: @character_perks.acrobatics %>
+        <%= label_tag :acrobatics, 'Акробатика:', class: "input-text-char" %>
+        <%= f.number_field :acrobatics, class: "input-field-char", id: "02_1", value: @character_perks.acrobatics %>
 
-        <%= label_tag :animal_handling, 'Уход за животными:', class:"input-text-char" %>
-        <%= f.number_field :animal_handling, class:"input-field-char",id: "02_2",value: @character_perks.animal_handling %>
+        <%= label_tag :animal_handling, 'Уход за животными:', class: "input-text-char" %>
+        <%= f.number_field :animal_handling, class: "input-field-char", id: "02_2", value: @character_perks.animal_handling %>
 
-        <%= label_tag :arcana, 'Магия:', class:"input-text-char" %>
-        <%= f.number_field :arcana, class:"input-field-char",id: "02_3",value: @character_perks.arcana %>
+        <%= label_tag :arcana, 'Магия:', class: "input-text-char" %>
+        <%= f.number_field :arcana, class: "input-field-char", id: "02_3", value: @character_perks.arcana %>
 
-        <%= label_tag :athletics, 'Атлетика:', class:"input-text-char" %>
-        <%= f.number_field :athletics, class:"input-field-char",id: "02_4",value: @character_perks.athletics %>
+        <%= label_tag :athletics, 'Атлетика:', class: "input-text-char" %>
+        <%= f.number_field :athletics, class: "input-field-char", id: "02_4", value: @character_perks.athletics %>
 
-        <%= label_tag :deception, 'Обман:', class:"input-text-char" %>
-        <%= f.number_field :deception, class:"input-field-char",id: "02_5",value: @character_perks.deception %>
+        <%= label_tag :deception, 'Обман:', class: "input-text-char" %>
+        <%= f.number_field :deception, class: "input-field-char", id: "02_5", value: @character_perks.deception %>
 
-        <%= label_tag :history, 'История:', class:"input-text-char" %>
-        <%= f.number_field :history, class:"input-field-char",id: "02_6",value: @character_perks.history %>
+        <%= label_tag :history, 'История:', class: "input-text-char" %>
+        <%= f.number_field :history, class: "input-field-char", id: "02_6", value: @character_perks.history %>
 
-        <%= label_tag :insight, 'Проницательность :', class:"input-text-char" %>
-        <%= f.number_field :insight, class:"input-field-char" ,id: "02_7",value: @character_perks.insight%>
+        <%= label_tag :insight, 'Проницательность :', class: "input-text-char" %>
+        <%= f.number_field :insight, class: "input-field-char", id: "02_7", value: @character_perks.insight %>
 
-        <%= label_tag :intimidation, 'Запугивание:', class:"input-text-char" %>
-        <%= f.number_field :intimidation, class:"input-field-char",id: "02_8",value: @character_perks.intimidation %>
+        <%= label_tag :intimidation, 'Запугивание:', class: "input-text-char" %>
+        <%= f.number_field :intimidation, class: "input-field-char", id: "02_8", value: @character_perks.intimidation %>
 
-        <%= label_tag :investigation, 'Анализ:', class:"input-text-char" %>
-        <%= f.number_field :investigation, class:"input-field-char",id: "02_9",value: @character_perks.investigation %>
+        <%= label_tag :investigation, 'Анализ:', class: "input-text-char" %>
+        <%= f.number_field :investigation, class: "input-field-char", id: "02_9", value: @character_perks.investigation %>
 
-        <%= label_tag :medicine, 'Медицина:', class:"input-text-char" %>
-        <%= f.number_field :medicine, class:"input-field-char",id: "02_10",value: @character_perks.medicine %>
+        <%= label_tag :medicine, 'Медицина:', class: "input-text-char" %>
+        <%= f.number_field :medicine, class: "input-field-char", id: "02_10", value: @character_perks.medicine %>
 
-        <%= label_tag :nature, 'Природа:', class:"input-text-char" %>
-        <%= f.number_field :nature, class:"input-field-char",id: "02_11",value: @character_perks.nature %>
+        <%= label_tag :nature, 'Природа:', class: "input-text-char" %>
+        <%= f.number_field :nature, class: "input-field-char", id: "02_11", value: @character_perks.nature %>
 
-        <%= label_tag :perception, 'Восприятие:', class:"input-text-char" %>
-        <%= f.number_field :perception, class:"input-field-char",id: "02_12",value: @character_perks.perception %>
+        <%= label_tag :perception, 'Восприятие:', class: "input-text-char" %>
+        <%= f.number_field :perception, class: "input-field-char", id: "02_12", value: @character_perks.perception %>
 
-        <%= label_tag :performance, 'Выступление:', class:"input-text-char" %>
-        <%= f.number_field :performance, class:"input-field-char",id: "02_13",value: @character_perks.performance %>
+        <%= label_tag :performance, 'Выступление:', class: "input-text-char" %>
+        <%= f.number_field :performance, class: "input-field-char", id: "02_13", value: @character_perks.performance %>
 
-        <%= label_tag :persuasion, 'Убеждение:', class:"input-text-char" %>
-        <%= f.number_field :persuasion, class:"input-field-char",id: "02_14" ,value: @character_perks.persuasion%>
+        <%= label_tag :persuasion, 'Убеждение:', class: "input-text-char" %>
+        <%= f.number_field :persuasion, class: "input-field-char", id: "02_14", value: @character_perks.persuasion %>
 
-        <%= label_tag :religion, 'Религия:', class:"input-text-char" %>
-        <%= f.number_field :religion, class:"input-field-char",id: "02_15" ,value: @character_perks.religion%>
+        <%= label_tag :religion, 'Религия:', class: "input-text-char" %>
+        <%= f.number_field :religion, class: "input-field-char", id: "02_15", value: @character_perks.religion %>
 
-        <%= label_tag :sleight_of_hand, 'Ловкость рук:', class:"input-text-char" %>
-        <%= f.number_field :sleight_of_hand, class:"input-field-char",id: "02_16" ,value: @character_perks.sleight_of_hand%>
+        <%= label_tag :sleight_of_hand, 'Ловкость рук:', class: "input-text-char" %>
+        <%= f.number_field :sleight_of_hand, class: "input-field-char", id: "02_16", value: @character_perks.sleight_of_hand %>
 
-        <%= label_tag :stealth, 'Скрытность:', class:"input-text-char" %>
-        <%= f.number_field :stealth, class:"input-field-char",id: "02_17" ,value: @character_perks.stealth%>
+        <%= label_tag :stealth, 'Скрытность:', class: "input-text-char" %>
+        <%= f.number_field :stealth, class: "input-field-char", id: "02_17", value: @character_perks.stealth %>
 
-        <%= label_tag :survival, 'Выживание:', class:"input-text-char" %>
-        <%= f.number_field :survival, class:"input-field-char",id: "02_18" ,value: @character_perks.survival%>
+        <%= label_tag :survival, 'Выживание:', class: "input-text-char" %>
+        <%= f.number_field :survival, class: "input-field-char", id: "02_18", value: @character_perks.survival %>
       </div>
 
       <div style="display: flex;flex-direction: column">
@@ -153,33 +153,33 @@
           </p>
 
           <div>
-            <%= label_tag :strength, 'Сила:', class:"input-text-char" %>
-            <%= f.number_field :strength, class:"input-field-char-ch",id: "30_1",value: @character_characteristics.strength %>
+            <%= label_tag :strength, 'Сила:', class: "input-text-char" %>
+            <%= f.number_field :strength, class: "input-field-char-ch", id: "30_1", value: @character_characteristics.strength ? 1 : 0 %>
           </div>
 
           <div>
-            <%= label_tag :dexterity, 'Ловкость:', class:"input-text-char" %>
-            <%= f.number_field :dexterity, class:"input-field-char-ch",id: "30_2",value: @character_characteristics.dexterity  %>
+            <%= label_tag :dexterity, 'Ловкость:', class: "input-text-char" %>
+            <%= f.number_field :dexterity, class: "input-field-char-ch", id: "30_2", value: @character_characteristics.dexterity %>
           </div>
 
           <div>
-            <%= label_tag :constitution, 'Телосложение:', class:"input-text-char" %>
-            <%= f.number_field :constitution, class:"input-field-char-ch",id: "30_3",value: @character_characteristics.constitution  %>
+            <%= label_tag :constitution, 'Телосложение:', class: "input-text-char" %>
+            <%= f.number_field :constitution, class: "input-field-char-ch", id: "30_3", value: @character_characteristics.constitution %>
           </div>
 
           <div>
-            <%= label_tag :intelligence, 'Интелект:', class:"input-text-char" %>
-            <%= f.number_field :intelligence, class:"input-field-char-ch",id: "30_4",value: @character_characteristics.intelligence  %>
+            <%= label_tag :intelligence, 'Интелект:', class: "input-text-char" %>
+            <%= f.number_field :intelligence, class: "input-field-char-ch", id: "30_4", value: @character_characteristics.intelligence %>
           </div>
 
           <div>
-            <%= label_tag :wisdom, 'Мудрость:', class:"input-text-char" %>
-            <%= f.number_field :wisdom, class:"input-field-char-ch",id: "30_5",value: @character_characteristics.wisdom  %>
+            <%= label_tag :wisdom, 'Мудрость:', class: "input-text-char" %>
+            <%= f.number_field :wisdom, class: "input-field-char-ch", id: "30_5", value: @character_characteristics.wisdom %>
           </div>
 
           <div>
-            <%= label_tag :charisma, 'Харизма:', class:"input-text-char" %>
-            <%= f.number_field :charisma, class:"input-field-char-ch",id: "30_6",value: @character_characteristics.charisma  %>
+            <%= label_tag :charisma, 'Харизма:', class: "input-text-char" %>
+            <%= f.number_field :charisma, class: "input-field-char-ch", id: "30_6", value: @character_characteristics.charisma %>
           </div>
         </div>
 
@@ -188,33 +188,28 @@
             Спасброски:
           </p>
 
-          <%= label_tag :strength_throws, 'Сила:', class:"input-text-char-st" %>
-          <%= f.check_box "strength_throws", class:"checkbox-char",value: @character_throws.strength%>
+          <%= label_tag :strength_throws, 'Сила:', class: "input-text-char-st" %>
+          <%= f.check_box :strength_throws, class: "checkbox-char", value: @character_throws.strength%>
 
-          <%= label_tag :dexterity_throws, 'Ловкость:', class:"input-text-char-st" %>
-          <%= f.check_box :dexterity_throws, class:"checkbox-char",value: @character_throws.dexterity %>
+          <%= label_tag :dexterity_throws, 'Ловкость:', class: "input-text-char-st" %>
+          <%= f.check_box :dexterity_throws, class: "checkbox-char", value: @character_throws.dexterity%>
 
-          <%= label_tag :constitution_throws, 'Телосложение:', class:"input-text-char-st" %>
-          <%= f.check_box :constitution_throws, class:"checkbox-char",value: @character_throws.constitution %>
+          <%= label_tag :constitution_throws, 'Телосложение:', class: "input-text-char-st" %>
+          <%= f.check_box :constitution_throws, class: "checkbox-char", value: @character_throws.constitution%>
 
-          <%= label_tag :intelligence_throws, 'Интелект:', class:"input-text-char-st" %>
-          <%= f.check_box :intelligence_throws, class:"checkbox-char",value: @character_throws.intelligence %>
+          <%= label_tag :intelligence_throws, 'Интелект:', class: "input-text-char-st" %>
+          <%= f.check_box :intelligence_throws, class: "checkbox-char", value: @character_throws.intelligence%>
 
-          <%= label_tag :wisdom_throws, 'Мудрость:', class:"input-text-char-st" %>
-          <%= f.check_box :wisdom_throws, class:"checkbox-char",value: @character_throws.wisdom %>
+          <%= label_tag :wisdom_throws, 'Мудрость:', class: "input-text-char-st" %>
+          <%= f.check_box :wisdom_throws, class: "checkbox-char", value: @character_throws.wisdom%>
 
-          <%= label_tag :charisma_throws, 'Харизма:', class:"input-text-char-st" %>
-          <%= f.check_box :charisma_throws, class:"checkbox-char",value: @character_throws.charisma %>
+          <%= label_tag :charisma_throws, 'Харизма:', class: "input-text-char-st" %>
+          <%= f.check_box :charisma_throws, class: "checkbox-char", value: @character_throws.charisma%>
         </div>
 
-        <%= f.submit 'Сохранить', class:"char-button" %>
+        <%= f.submit 'Сохранить', class: "char-button" %>
       </div>
     </div>
-
-
-
-
-
 
 
   </div>

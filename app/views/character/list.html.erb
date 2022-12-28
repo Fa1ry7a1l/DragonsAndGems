@@ -12,6 +12,6 @@
 
 <%- @characters.each do |character| %>
   <p >
-    <%= character.character_name %> <%= button_to "Edit", "/character/edit_char/#{character.id}", method: :get, class:"back_button"%>
+    <%= character.character_name %> <%# button_to "Edit", "/character/edit_char/#{character.id}", method: :get, class:"back_button"%>
   </p>
 <% end %>
