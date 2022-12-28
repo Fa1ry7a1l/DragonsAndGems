@@ -32,6 +32,5 @@ document.getElementById('message-form').onsubmit = function (e) {
             authenticity_token: getAuthToken()
         });
     }
-
     return false;
 };

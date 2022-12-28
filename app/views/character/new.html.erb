@@ -1,6 +1,14 @@
+<% content_for :head do %>
+  <%= javascript_import_module_tag  "character" %>
+<% end %>
+
 <style>body {
     background-color: #f4f7ff;
 }</style>
+
+<nav>
+  <%= button_to "Назад", character_list_path, method: :get, class:"back_button"%>
+</nav>
 
 <%= form_for :character do |f| %>
   <div class="char-container">
@@ -24,19 +32,19 @@
     <%= f.text_field :race, class:"input-field-char-main" %>
         </div>
         <div>
-    <%= label_tag :proficiency_bonus, 'Бонус владения:', class:"input-text-char-main" %>
-    <%= f.number_field :proficiency_bonus, class:"input-field-char-main" %>
+    <%= label_tag :proficiency_bonus, 'Бонус владения:', class:"input-text-char-main"%>
+    <%= f.number_field :proficiency_bonus, class:"input-field-char-main", id: "123" %>
         </div>
         <div>
     <%= label_tag :alignment, 'Мировоззрение:', class:"input-text-char-main" %>
     <%= f.text_field :alignment, class:"input-field-char-main" %>
         </div>
         <div>
-    <%= label_tag :exp, 'Опыт:', class:"input-text-char-main" %>
+    <%= label_tag :exp, 'Опыт:', class:"input-text-char-main", onchange: "grateZero(this)" %>
     <%= f.number_field :exp, class:"input-field-char-main" %>
         </div>
         <div>
-    <%= label_tag :lvl, 'Уровень:', class:"input-text-char-main" %>
+    <%= label_tag :lvl, 'Уровень:', class:"input-text-char-main", onchange: "grateZero(this)" %>
     <%= f.number_field :lvl, class:"input-field-char-main" %>
         </div>
         <div>
@@ -46,31 +54,31 @@
       </div>
       <div class ="main-info-right">
         <div>
-    <%= label_tag :armor_class, 'Класс защиты:', class:"input-text-char-main" %>
+    <%= label_tag :armor_class, 'Класс защиты:', class:"input-text-char-main", onchange: "grateZero(this)" %>
     <%= f.number_field :armor_class, class:"input-field-char-main" %>
         </div>
         <div>
-    <%= label_tag :initiative, 'Инициатива:', class:"input-text-char-main" %>
+    <%= label_tag :initiative, 'Инициатива:', class:"input-text-char-main", onchange: "grateZero(this)" %>
     <%= f.number_field :initiative, class:"input-field-char-main" %>
         </div>
         <div>
-    <%= label_tag :speed, 'Скорость:', class:"input-text-char-main" %>
+    <%= label_tag :speed, 'Скорость:', class:"input-text-char-main", onchange: "grateZero(this)" %>
     <%= f.number_field :speed, class:"input-field-char-main" %>
         </div>
         <div>
-    <%= label_tag :max_hp, 'Максимальный уровень здоровья:', class:"input-text-char-main" %>
+    <%= label_tag :max_hp, 'Максимальный уровень здоровья:', class:"input-text-char-main", onchange: "grateZero(this)" %>
     <%= f.number_field :max_hp, class:"input-field-char-main" %>
         </div>
         <div>
-    <%= label_tag :curr_hp, 'Текущий уровень здоровья:', class:"input-text-char-main" %>
+    <%= label_tag :curr_hp, 'Текущий уровень здоровья:', class:"input-text-char-main", onchange: "grateZero(this)" %>
     <%= f.number_field :curr_hp, class:"input-field-char-main" %>
         </div>
         <div>
-    <%= label_tag :temporary_hp, 'Временный бонус здоровья:', class:"input-text-char-main" %>
+    <%= label_tag :temporary_hp, 'Временный бонус здоровья:', class:"input-text-char-main", onchange: "grateZero(this)" %>
     <%= f.number_field :temporary_hp, class:"input-field-char-main" %>
         </div>
         <div>
-    <%= label_tag :money, 'Медные монеты:', class:"input-text-char-main" %>
+    <%= label_tag :money, 'Медные монеты:', class:"input-text-char-main", onchange: "grateZero(this)" %>
     <%= f.number_field :money, class:"input-field-char-main" %>
         </div>
       </div>
@@ -83,61 +91,61 @@
           Перки персонажа:
         </p>
 
-    <%= label_tag :current_hp, 'Текущий уровень здоровья:', class:"input-text-char" %>
+    <%= label_tag :current_hp, 'Текущий уровень здоровья:', class:"input-text-char", onchange: "grateZero(this)" %>
     <%= f.number_field :current_hp, class:"input-field-char" %>
 	
-        <%= label_tag :acrobatics, 'Акробатика:', class:"input-text-char" %>
+        <%= label_tag :acrobatics, 'Акробатика:', class:"input-text-char", onchange: "grateZero(this)" %>
         <%= f.number_field :acrobatics, class:"input-field-char" %>
 
-        <%= label_tag :animal_handling, 'Уход за животными:', class:"input-text-char" %>
+        <%= label_tag :animal_handling, 'Уход за животными:', class:"input-text-char", onchange: "grateZero(this)" %>
         <%= f.number_field :animal_handling, class:"input-field-char" %>
 
-        <%= label_tag :arcana, 'Магия:', class:"input-text-char" %>
+        <%= label_tag :arcana, 'Магия:', class:"input-text-char", onchange: "grateZero(this)" %>
         <%= f.number_field :arcana, class:"input-field-char" %>
 
-        <%= label_tag :athletics, 'Атлетика:', class:"input-text-char" %>
+        <%= label_tag :athletics, 'Атлетика:', class:"input-text-char", onchange: "grateZero(this)" %>
         <%= f.number_field :athletics, class:"input-field-char" %>
 
-        <%= label_tag :deception, 'Обман:', class:"input-text-char" %>
+        <%= label_tag :deception, 'Обман:', class:"input-text-char", onchange: "grateZero(this)" %>
         <%= f.number_field :deception, class:"input-field-char" %>
 
-        <%= label_tag :history, 'История:', class:"input-text-char" %>
+        <%= label_tag :history, 'История:', class:"input-text-char", onchange: "grateZero(this)" %>
         <%= f.number_field :history, class:"input-field-char" %>
 
-        <%= label_tag :insight, 'Проницательность :', class:"input-text-char" %>
+        <%= label_tag :insight, 'Проницательность :', class:"input-text-char", onchange: "grateZero(this)" %>
         <%= f.number_field :insight, class:"input-field-char" %>
 
-        <%= label_tag :intimidation, 'Запугивание:', class:"input-text-char" %>
+        <%= label_tag :intimidation, 'Запугивание:', class:"input-text-char", onchange: "grateZero(this)" %>
         <%= f.number_field :intimidation, class:"input-field-char" %>
 
-        <%= label_tag :investigation, 'Анализ:', class:"input-text-char" %>
+        <%= label_tag :investigation, 'Анализ:', class:"input-text-char", onchange: "grateZero(this)" %>
         <%= f.number_field :investigation, class:"input-field-char" %>
 
-        <%= label_tag :medicine, 'Медицина:', class:"input-text-char" %>
+        <%= label_tag :medicine, 'Медицина:', class:"input-text-char", onchange: "grateZero(this)" %>
         <%= f.number_field :medicine, class:"input-field-char" %>
 
-        <%= label_tag :nature, 'Природа:', class:"input-text-char" %>
+        <%= label_tag :nature, 'Природа:', class:"input-text-char", onchange: "grateZero(this)" %>
         <%= f.number_field :nature, class:"input-field-char" %>
 
-        <%= label_tag :perception, 'Восприятие:', class:"input-text-char" %>
+        <%= label_tag :perception, 'Восприятие:', class:"input-text-char", onchange: "grateZero(this)" %>
         <%= f.number_field :perception, class:"input-field-char" %>
 
-        <%= label_tag :performance, 'Выступление:', class:"input-text-char" %>
+        <%= label_tag :performance, 'Выступление:', class:"input-text-char", onchange: "grateZero(this)" %>
         <%= f.number_field :performance, class:"input-field-char" %>
 
-        <%= label_tag :persuasion, 'Убеждение:', class:"input-text-char" %>
+        <%= label_tag :persuasion, 'Убеждение:', class:"input-text-char", onchange: "grateZero(this)" %>
         <%= f.number_field :persuasion, class:"input-field-char" %>
 
-        <%= label_tag :religion, 'Религия:', class:"input-text-char" %>
+        <%= label_tag :religion, 'Религия:', class:"input-text-char", onchange: "grateZero(this)" %>
         <%= f.number_field :religion, class:"input-field-char" %>
 
-        <%= label_tag :sleight_of_hand, 'Ловкость рук:', class:"input-text-char" %>
+        <%= label_tag :sleight_of_hand, 'Ловкость рук:', class:"input-text-char", onchange: "grateZero(this)" %>
         <%= f.number_field :sleight_of_hand, class:"input-field-char" %>
 
-        <%= label_tag :stealth, 'Скрытность:', class:"input-text-char" %>
+        <%= label_tag :stealth, 'Скрытность:', class:"input-text-char", onchange: "grateZero(this)" %>
         <%= f.number_field :stealth, class:"input-field-char" %>
 
-        <%= label_tag :survival, 'Выживание:', class:"input-text-char" %>
+        <%= label_tag :survival, 'Выживание:', class:"input-text-char", onchange: "grateZero(this)" %>
         <%= f.number_field :survival, class:"input-field-char" %>
       </div>
 
@@ -148,32 +156,32 @@
     </p>
 
       <div>
-    <%= label_tag :strength, 'Сила:', class:"input-text-char" %>
+    <%= label_tag :strength, 'Сила:', class:"input-text-char", onchange: "grateZero(this)" %>
     <%= f.number_field :strength, class:"input-field-char-ch" %>
       </div>
 
       <div>
-    <%= label_tag :dexterity, 'Ловкость:', class:"input-text-char" %>
+    <%= label_tag :dexterity, 'Ловкость:', class:"input-text-char", onchange: "grateZero(this)" %>
     <%= f.number_field :dexterity, class:"input-field-char-ch" %>
         </div>
 
       <div>
-    <%= label_tag :constitution, 'Телосложение:', class:"input-text-char" %>
+    <%= label_tag :constitution, 'Телосложение:', class:"input-text-char", onchange: "grateZero(this)" %>
     <%= f.number_field :constitution, class:"input-field-char-ch" %>
       </div>
 
       <div>
-    <%= label_tag :intelligence, 'Интелект:', class:"input-text-char" %>
+    <%= label_tag :intelligence, 'Интелект:', class:"input-text-char" , onchange: "grateZero(this)"%>
     <%= f.number_field :intelligence, class:"input-field-char-ch" %>
       </div>
 
       <div>
-    <%= label_tag :wisdom, 'Мудрость:', class:"input-text-char" %>
+    <%= label_tag :wisdom, 'Мудрость:', class:"input-text-char", onchange: "grateZero(this)" %>
     <%= f.number_field :wisdom, class:"input-field-char-ch" %>
       </div>
 
       <div>
-    <%= label_tag :charisma, 'Харизма:', class:"input-text-char" %>
+    <%= label_tag :charisma, 'Харизма:', class:"input-text-char", onchange: "grateZero(this)" %>
     <%= f.number_field :charisma, class:"input-field-char-ch" %>
       </div>
     </div>
@@ -183,27 +191,34 @@
       Спасброски:
     </p>
 
-    <%= label_tag :strength_throws, 'Сила:', class:"input-text-char-st" %>
+    <%= label_tag :strength_throws, 'Сила:', class:"input-text-char-st", onchange: "grateZero(this)" %>
     <%= f.check_box :strength_throws, class:"checkbox-char" %>
 
-    <%= label_tag :dexterity_throws, 'Ловкость:', class:"input-text-char-st" %>
+    <%= label_tag :dexterity_throws, 'Ловкость:', class:"input-text-char-st", onchange: "grateZero(this)" %>
     <%= f.check_box :dexterity_throws, class:"checkbox-char" %>
 
-    <%= label_tag :constitution_throws, 'Телосложение:', class:"input-text-char-st" %>
+    <%= label_tag :constitution_throws, 'Телосложение:', class:"input-text-char-st", onchange: "grateZero(this)" %>
     <%= f.check_box :constitution_throws, class:"checkbox-char" %>
 
-    <%= label_tag :intelligence_throws, 'Интелект:', class:"input-text-char-st" %>
+    <%= label_tag :intelligence_throws, 'Интелект:', class:"input-text-char-st", onchange: "grateZero(this)" %>
     <%= f.check_box :intelligence_throws, class:"checkbox-char" %>
 
-    <%= label_tag :wisdom_throws, 'Мудрость:', class:"input-text-char-st" %>
+    <%= label_tag :wisdom_throws, 'Мудрость:', class:"input-text-char-st", onchange: "grateZero(this)" %>
     <%= f.check_box :wisdom_throws, class:"checkbox-char" %>
 
-    <%= label_tag :charisma_throws, 'Харизма:', class:"input-text-char-st" %>
+    <%= label_tag :charisma_throws, 'Харизма:', class:"input-text-char-st", onchange: "grateZero(this)" %>
     <%= f.check_box :charisma_throws, class:"checkbox-char" %>
     </div>
 
       <%= f.submit 'Создать', class:"char-button" %>
     </div>
     </div>
+
+
+
+
+
+
+
   </div>
 <% end %>
