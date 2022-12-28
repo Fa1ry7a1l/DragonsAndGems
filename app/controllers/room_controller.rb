@@ -24,7 +24,8 @@ class RoomController < BaseAuthController
   end
 
   def show
-    @messages = Room.where(tag: session[:room])[0].messages
+    @room_tag = session[:room]
+    @messages = Room.where(tag: @room_tag)[0].messages
   end
 
   def join

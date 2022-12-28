@@ -9,9 +9,25 @@ class CharacterController < BaseAuthController
   def new
 
   end
+
+  def save_edit
+
+  end
+
+  def edit_char
+    return render status: :bad_request unless @current_user.characters_lists.ids.include?(params[:id].to_i)
+    @character = CharactersList.find_by_id(params[:id].to_i)
+    @character_characteristics = CharacterCharacteristics.where(character_id: @character.id)[0]
+    @character_throws = CharacterSavingThrow.where(character_id: @character.id)[0]
+    @character_perks = CharacterPerks.where(character_id: @character.id)[0]
+
+    pp @character_throws
+  end
+
   def create
     pp params
-    par = params.require(:character).permit(
+
+    par = params.require(:character_list_characteristics).permit(
       :character_name,
       :background,
       :race,
@@ -87,15 +103,19 @@ class CharacterController < BaseAuthController
 
     id = character.id
 
+    pp par
     cst = CharacterSavingThrow.new(
       character_id: id,
-      strength: par[:strength_throws],
-      dexterity: par[:dexterity_throws],
-      constitution: par[:constitution_throws],
-      intelligence: par[:intelligence_throws],
-      wisdom: par[:wisdom_throws],
-      charisma: par[:charisma_throws]
+      strength: (par[:strength_throws] == "1"),
+      dexterity: (par[:dexterity_throws] == "1"),
+      constitution: (par[:constitution_throws] == "1"),
+      intelligence: (par[:intelligence_throws] == "1"),
+      wisdom: (par[:wisdom_throws] == "1"),
+      charisma: (par[:charisma_throws] == "1")
     )
+
+    pp cst
+    pp cst.valid?
 
     unless cst.save
       pp "cst"

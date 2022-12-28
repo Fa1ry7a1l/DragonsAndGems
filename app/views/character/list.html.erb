@@ -2,12 +2,16 @@
     background-color: #f4f7ff;
 }</style>
 
+<nav>
+  <%= button_to "Назад", root_path, method: :get, class:"back_button"%>
+</nav>
+
 <div style="text-align: center">
   <%= button_to "Создать нового персонажа", character_new_path, method: :get, class:"home_button"%>
 </div>
 
 <%- @characters.each do |character| %>
   <p >
-    <%= character.character_name %>
+    <%= character.character_name %> <%# button_to "Edit", "/character/edit_char/#{character.id}", method: :get, class:"back_button"%>
   </p>
 <% end %>
