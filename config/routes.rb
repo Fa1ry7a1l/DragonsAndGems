@@ -25,4 +25,7 @@ Rails.application.routes.draw do
   get '/character/list', to: 'character#list'
   get '/character/new', to: 'character#new'
   post '/character/new', to: 'character#create'
+
+  get '/character/edit_char/:id', to: 'character#edit_char'
+  post '/character/edit_char/:id', to: 'character#create'
 end

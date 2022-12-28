@@ -9,8 +9,21 @@ class CharacterController < BaseAuthController
   def new
 
   end
+
+  def save_edit
+
+  end
+
+  def edit_char
+    return render status: :bad_request unless @current_user.characters_lists.ids.include?(params[:id].to_i)
+    @character = CharactersList.find_by_id(params[:id].to_i)
+    @character_characteristics = CharacterCharacteristics.where(character_id: @character.id)[0]
+    @character_throws = CharacterSavingThrow.where(character_id: @character.id)[0]
+    @character_perks = CharacterPerks.where(character_id: @character.id)[0]
+
+  end
+
   def create
-    pp params
     par = params.require(:character).permit(
       :character_name,
       :background,
