@@ -8,17 +8,17 @@ class MessageController < BaseAuthController
     message.save
     message.valid?
     return render status: :bad_request unless message.valid?
-    ActionCable.server.broadcast 'chat_channel',
-                                 {body: message.body,
-                                 created_at: message.created_at}
+    ActionCable.server.broadcast("room_#{@room_tag}",
+                                 { body: message.body,
+                                   created_at: message.created_at,
+                                   owner: @current_user.id,
+                                   owner_name: @current_user.player_name})
     render status: :ok, json: {}
   end
 
+  private
 
-
-private
-
-def message_params
-  params.require(:message).require(:body)
-end
+  def message_params
+    params.require(:message).require(:body)
+  end
 end
