@@ -1,24 +1,11 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Dragons and Gems
+---
+Сайт для проведения онлайн-сессий в D&D, созданный в рамках курса ПиТП 2023.  
+Во время разработки не пострадал ни один гоблин.
+  
+#### Что делать?
+Если это ваше первое приключение, заведите аккаунт.  
+Придумайте персонажа.  
+Создайте комнату или присоединитесь к уже существующей.
+  
+[Посмотреть можно здесь](http://542874.cloud4box.ru)
