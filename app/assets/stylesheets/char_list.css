@@ -234,3 +234,10 @@
     background-color: #d0d0fe;
     cursor: default;
 }
+
+.chat-text
+{
+    font-family: "Century Gothic";
+    margin-left: 1rem;
+
+}

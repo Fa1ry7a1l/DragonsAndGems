@@ -2,14 +2,15 @@
   <%= javascript_import_module_tag  "show" %>
 <% end %>
 <div>
-  <nav>
-    <%= button_to "Назад", root_path, method: :get, class: "back_button" %>
-  </nav>
-
-  <p>Код подключения: <%= @room_tag %></p>
   <input type="hidden" id="player_id" value="<%= @current_user.id %>">
 
     <div class="chat-container">
+
+      <nav>
+        <%= button_to "Назад", root_path, method: :get, class: "back_button" %>
+      </nav>
+      <div class="chat-text">Код подключения: <%= @room_tag %></div>
+
       <div id='chat-box' class="chat-box">
         <% @messages.each do |message|
           message %>
