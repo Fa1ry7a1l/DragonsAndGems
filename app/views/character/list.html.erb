@@ -11,7 +11,7 @@
 </div>
 
 <%- @characters.each do |character| %>
-  <p >
+  <div class="char-preview">
     <%= character.character_name %> <%# button_to "Edit", "/character/edit_char/#{character.id}", method: :get, class:"back_button"%>
-  </p>
+  </div>
 <% end %>

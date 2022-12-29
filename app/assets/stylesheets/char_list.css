@@ -221,3 +221,16 @@
     margin-top: 1%;
     margin-left: 20%;
 }
+
+.char-preview
+{
+    font-family: "Century Gothic";
+    font-weight: bold;
+    text-align: center;
+    padding: 5px;
+    width: 10%;
+    margin: 1% auto auto;
+    border-radius: 10px;
+    background-color: #d0d0fe;
+    cursor: default;
+}

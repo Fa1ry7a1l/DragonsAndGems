@@ -168,6 +168,7 @@ GEM
       actionpack (>= 4.2)
       omniauth (~> 2.0)
     pg (1.4.5)
+    pg (1.4.5-x64-mingw32)
     public_suffix (5.0.1)
     puma (5.6.5)
       nio4r (~> 2.0)
@@ -234,6 +235,8 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
+    tzinfo-data (1.2022.7)
+      tzinfo (>= 1.0.0)
     version_gem (1.1.1)
     web-console (4.2.0)
       actionview (>= 6.0.0)
@@ -253,7 +256,8 @@ GEM
     zeitwerk (2.6.6)
 
 PLATFORMS
-  x64-mingw-ucrt
+  x64-mingw32
+  x64-unknown
   x86_64-linux
 
 DEPENDENCIES
@@ -275,7 +279,7 @@ DEPENDENCIES
   sprockets-rails
   stimulus-rails
   turbo-rails
-  tzinfo-data
+  tzinfo-data (~> 1.2019)
   web-console
   webdrivers
 
